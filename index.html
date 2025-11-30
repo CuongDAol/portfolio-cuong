@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfolio - Bùi Mạnh Cường | Data Analyst</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio Bùi Mạnh Cường - Intern Data Analyst (Python, SQL, Power BI)." />
+    <style>
+        :root {
+            /* Palette màu chuyên nghiệp: Deep Navy & Electric Blue */
+            --bg-body: #020617;
+            --primary: #38bdf8;         /* Xanh sáng cho điểm nhấn */
+            --primary-glow: rgba(56, 189, 248, 0.4);
+            --secondary: #64748b;       /* Màu xám xanh cho text phụ */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            
+            /* Glassmorphism variables */
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-blur: blur(16px);
+            
+            --radius-lg: 20px;
+            --radius-full: 999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            /* Tạo background dynamic */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.08), transparent 25%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        
+        .container {
+            width: min(1200px, 92%);
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-info span { display: block; line-height: 1.2; }
+        .nav-name { font-weight: 700; font-size: 1rem; }
+        .nav-role { font-size: 0.75rem; color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .btn-cta {
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            border: 1px solid transparent;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+
+        /* --- HERO SECTION --- */
+        section { padding: 4rem 0; }
+        
+        #hero { padding-top: 3rem; padding-bottom: 4rem; }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .highlight-text {
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--glass-border);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tech-badge b { color: var(--primary); }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--primary);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .btn-outline:hover {
+            background: rgba(56, 189, 248, 0.15);
+        }
+
+        /* Hero Profile Card (Glassmorphism) */
+        .profile-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .profile-avatar-large {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-role {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative; z-index: 1;
+        }
+
+        .profile-bio {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            position: relative; z-index: 1;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 1.5rem;
+            position: relative; z-index: 1;
+        }
+
+        .stat-item h4 { font-size: 1.2rem; color: #fff; margin-bottom: 0.2rem; }
+        .stat-item p { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* --- COMMON SECTIONS --- */
+        .section-header { margin-bottom: 2.5rem; }
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .section-title { font-size: 2rem; font-weight: 700; color: white; }
+
+        /* --- PROJECTS GRID --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pill {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .project-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
+        .project-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+        
+        .project-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-link:hover { color: var(--primary); }
+
+        /* --- SKILLS --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .skill-box {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .skill-box h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
+        
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag {
+            font-size: 0.8rem;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0.3rem 0.7rem;
+            border-radius: 99px;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+        }
+
+        /* --- TIMELINE (Experience) --- */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid #334155;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+        }
+
+        .timeline-date { font-size: 0.8rem; color: var(--primary); margin-bottom: 0.3rem; }
+        .timeline-title { font-size: 1.1rem; color: white; }
+        .timeline-org { font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.8rem; }
+        .timeline-desc li { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.3rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: rgba(2, 6, 23, 0.9);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero-layout { grid-template-columns: 1fr; text-align: center; }
+            .hero-buttons, .tech-stack { justify-content: center; }
+            .skills-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Mobile Menu could be added here */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="nav-left">
+            <img src="763bb4daab70182e4161.jpg" alt="Cuong Avatar" class="nav-avatar">
+            <div class="nav-info">
+                <span class="nav-name">Bùi Mạnh Cường</span>
+                <span class="nav-role">Intern Data Analyst</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">Giới thiệu</a>
+            <a href="#skills">Kỹ năng</a>
+            <a href="#projects">Dự án</a>
+            <a href="#experience">Hành trình</a>
+        </nav>
+        <a href="#contact" class="btn-cta">Liên hệ</a>
+    </div>
+</header>
+
+<main>
+    <section id="hero">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <span class="section-tag">Xin chào, mình là</span>
+                <h1>Data Analyst tập trung vào <span class="highlight-text">Insight & Tăng trưởng</span></h1>
+                <p class="hero-desc">
+                    Mình biến dữ liệu thô thành những câu chuyện có ý nghĩa, giúp doanh nghiệp ra quyết định chính xác hơn thông qua Python, SQL và Power BI.
+                </p>
+                
+                <div class="tech-stack">
+                    <div class="tech-badge"><b>Python</b> Pandas, Matplotlib</div>
+                    <div class="tech-badge"><b>SQL</b> MySQL, BigQuery</div>
+                    <div class="tech-badge"><b>BI</b> Power BI, Excel</div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#" class="btn-cta">Tải CV (PDF)</a>
+                    <a href="#projects" class="btn-outline">Xem dự án</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <img src="763bb4daab70182e4161.jpg" alt="Bùi Mạnh Cường" class="profile-avatar-large">
+                <div class="profile-role">Open to Work</div>
+                <p class="profile-bio">
+                    "Luôn tò mò về dữ liệu và câu chuyện đằng sau những con số."
+                </p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4>7+</h4>
+                        <p>Dự án cá nhân</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>3+</h4>
+                        <p>Công cụ chính</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Nhiệt huyết</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Về bản thân</span>
+                <h2 class="section-title">Tổng quan</h2>
+            </div>
+            <div style="background: rgba(30,41,59,0.4); padding: 2rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+                <p style="color: #cbd5e1; margin-bottom: 1rem;">
+                    Xuất phát điểm từ chuyên ngành <strong>Quản trị Kinh doanh</strong>, mình có lợi thế trong việc hiểu bối cảnh kinh doanh của dữ liệu. Mình không chỉ viết code hay truy vấn SQL, mà mình luôn tự hỏi: <em>"Dữ liệu này giúp gì cho doanh nghiệp?"</em>.
+                </p>
+                <p style="color: #cbd5e1;">
+                    Mình đam mê việc khai phá dữ liệu (EDA), trực quan hóa (Visualization) và đang hướng tới mục tiêu trở thành một <strong>Full-stack Data Analyst</strong> chuyên nghiệp.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Bộ kỹ năng</span>
+                <h2 class="section-title">Công cụ & Tư duy</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <h3>📊 Phân tích & Xử lý</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">EDA</span>
+                        <span class="skill-tag">Data Cleaning</span>
+                        <span class="skill-tag">Thống kê mô tả</span>
+                        <span class="skill-tag">Consumer Behavior</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <h3>💻 Lập trình & CSDL</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python (Pandas)</span>
+                        <span class="skill-tag">SQL (Window Func)</span>
+                        <span class="skill-tag">Database Design</span>
+                        <span class="skill-tag">Web Scraping</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <h3>📈 Trực quan hóa</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Power BI (DAX)</span>
+                        <span class="skill-tag">Matplotlib/Seaborn</span>
+                        <span class="skill-tag">Dashboard Design</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Dự án tiêu biểu</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">Python</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">Matplotlib</span>
+                    </div>
+                    <h3 class="project-title">Phân tích Kinh doanh Tech Store</h3>
+                    <p class="project-desc">Pipeline xử lý dữ liệu từ nhiều nguồn CSV, trích xuất đặc trưng và trực quan hóa hiệu suất kinh doanh đa chiều.</p>
+                    <a href="https://github.com/CuongDAol/phantichkinhdoanhcuahangcongnghe" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+
+                <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">Web Crawler</span>
+                        <span class="pill">Selenium</span>
+                        <span class="pill">MySQL</span>
+                    </div>
+                    <h3 class="project-title">Mobile Phone Market Analysis</h3>
+                    <p class="project-desc">Tool tự động crawl dữ liệu TGDĐ, chuẩn hóa ETL vào MySQL và phân tích phân khúc giá thị trường.</p>
+                    <a href="https://github.com/CuongDAol/Phantichhangdienthoai" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+
+                <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">Finance</span>
+                        <span class="pill">Scraping</span>
+                        <span class="pill">Jupyter</span>
+                    </div>
+                    <h3 class="project-title">FPT Stock Financial Analysis</h3>
+                    <p class="project-desc">Thu thập BCTC tự động từ Vietstock, làm sạch dữ liệu tài chính và đánh giá sức khỏe doanh nghiệp FPT qua các năm.</p>
+                    <a href="https://github.com/CuongDAol/cophieufpt" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+
+                <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">Power BI</span>
+                        <span class="pill">Excel</span>
+                        <span class="pill">KPIs</span>
+                    </div>
+                    <h3 class="project-title">Sales & Inventory Optimization</h3>
+                    <p class="project-desc">Dashboard Power BI tương tác theo dõi KPI doanh số, tỷ lệ hết hàng và tối ưu hóa nhập kho.</p>
+                    <a href="https://github.com/CuongDAol/BSS_test" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+
+                 <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">SQL</span>
+                        <span class="pill">RDBMS</span>
+                        <span class="pill">Query Optimization</span>
+                    </div>
+                    <h3 class="project-title">Library Management System</h3>
+                    <p class="project-desc">Thiết kế CSDL quan hệ, viết truy vấn phức tạp (JOIN, CTE) thống kê độc giả và tối ưu hóa hiệu suất DB.</p>
+                    <a href="https://github.com/CuongDAol/library_project" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+
+                 <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">Machine Learning</span>
+                        <span class="pill">Folium</span>
+                        <span class="pill">Plotly Dash</span>
+                    </div>
+                    <h3 class="project-title">SpaceX Launch Prediction</h3>
+                    <p class="project-desc">Quy trình Data Science End-to-End: Crawl API, EDA, Dashboard bản đồ và mô hình ML dự đoán hạ cánh.</p>
+                    <a href="https://github.com/CuongDAol/ibm-pj" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+
+                 <article class="project-card">
+                    <div class="tech-pill-container">
+                        <span class="pill">Python</span>
+                        <span class="pill">Business Insight</span>
+                    </div>
+                    <h3 class="project-title">Coffee & Tea Sales Analysis</h3>
+                    <p class="project-desc">Đồng bộ dữ liệu báo cáo bán hàng & kế toán, tìm ra khung giờ vàng và xu hướng thanh toán.</p>
+                    <a href="https://github.com/CuongDAol/salecoffeandtee" target="_blank" class="project-link">👉 Xem mã nguồn</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kinh nghiệm</span>
+                <h2 class="section-title">Hành trình phát triển</h2>
+            </div>
+            <div style="max-width: 800px;">
+                <div class="timeline-item">
+                    <div class="timeline-date">Hiện tại</div>
+                    <h3 class="timeline-title">Thực tập sinh Market Research</h3>
+                    <div class="timeline-org">Công ty TNHH IGA Việt Nam</div>
+                    <ul class="timeline-desc">
+                        <li>Thu thập & phân tích dữ liệu thị trường, đối thủ cạnh tranh.</li>
+                        <li>Xây dựng báo cáo insight hỗ trợ team Marketing & Kinh doanh.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - 2024</div>
+                    <h3 class="timeline-title">Cử nhân Quản trị Kinh doanh</h3>
+                    <div class="timeline-org">Đại học Giao Thông Vận Tải</div>
+                    <ul class="timeline-desc">
+                        <li>Tư duy kinh doanh, tài chính và marketing nền tảng.</li>
+                        <li>Hoạt động: CLB Nhà Doanh Nghiệp Tương Lai, Đội SVTN Đồng Hương Hòa Bình.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container" style="text-align: center;">
+            <div style="background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9)); padding: 3rem; border-radius: 24px; border: 1px solid var(--glass-border);">
+                <h2 style="color: white; margin-bottom: 1rem;">Sẵn sàng cho thử thách mới?</h2>
+                <p style="color: #cbd5e1; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Mình luôn tìm kiếm cơ hội để áp dụng kỹ năng dữ liệu vào bài toán thực tế. Hãy kết nối nếu bạn đang tìm kiếm một Intern/Fresher DA nhiệt huyết.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="mailto:buipg0801@gmail.com" class="btn-cta">✉️ buipg0801@gmail.com</a>
+                    <a href="tel:0823722038" class="btn-outline" style="color:white; border-color:white;">📞 0823 722 038</a>
+                    <a href="https://github.com/CuongDAol" target="_blank" class="btn-outline" style="color:white; border-color:white;">Github</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© <span id="year"></span> Bùi Mạnh Cường. Built with passion & coffee ☕</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
