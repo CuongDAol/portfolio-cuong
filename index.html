@@ -1,681 +1,1030 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <title>Portfolio - Bùi Mạnh Cường | Data Analyst</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio Bùi Mạnh Cường - Intern Data Analyst (Python, SQL, Power BI)." />
-    <style>
-        :root {
-            /* Palette màu chuyên nghiệp: Deep Navy & Electric Blue */
-            --bg-body: #020617;
-            --primary: #38bdf8;         /* Xanh sáng cho điểm nhấn */
-            --primary-glow: rgba(56, 189, 248, 0.4);
-            --secondary: #64748b;       /* Màu xám xanh cho text phụ */
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            
-            /* Glassmorphism variables */
-            --glass-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-blur: blur(16px);
-            
-            --radius-lg: 20px;
-            --radius-full: 999px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <meta charset="UTF-8" />
+  <title>Portfolio - Bùi Mạnh Cường | Data Analyst</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio Bùi Mạnh Cường - Intern/Fresher Data Analyst (Python, SQL, Power BI)." />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
+  <!-- Performance: preconnect + font with fallback (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-body);
-            /* Tạo background dynamic */
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.08), transparent 25%);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  <!-- Open Graph (HR share link) -->
+  <meta property="og:title" content="Bùi Mạnh Cường | Data Analyst" />
+  <meta property="og:description" content="Intern/Fresher Data Analyst • Python • SQL • Power BI • Projects with business insights" />
+  <meta property="og:type" content="website" />
 
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        img { max-width: 100%; display: block; }
-        
-        .container {
-            width: min(1200px, 92%);
-            margin: 0 auto;
-        }
+  <style>
+    :root {
+      /* Deep Navy & Electric Blue */
+      --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.62);
+      --panel-2: rgba(17, 24, 39, 0.62);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-2: #2563eb;
+      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-full: 999px;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --t: 240ms var(--ease);
 
-        /* --- HEADER & NAV --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-        }
+      /* Accessible focus */
+      --focus: 0 0 0 3px rgba(56, 189, 248, 0.35);
+    }
 
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 0;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-        .nav-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(56, 189, 248, 0.3);
-        }
+    /* Background image layer (đặt file nền là bg.jpg hoặc đổi URL) */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(180deg, rgba(2, 6, 23, 0.88), rgba(2, 6, 23, 0.78)),
+        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.12), transparent 28%),
+        radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.12), transparent 28%),
+        url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.03);
+    }
 
-        .nav-info span { display: block; line-height: 1.2; }
-        .nav-name { font-weight: 700; font-size: 1rem; }
-        .nav-role { font-size: 0.75rem; color: var(--text-muted); }
+    /* Subtle grain (tạo cảm giác “premium”, không nặng máy) */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity: 0.06;
+      mix-blend-mode: overlay;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+    a { color: inherit; text-decoration: none; transition: var(--t); }
+    img { max-width: 100%; display: block; }
 
-        .nav-links a {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            position: relative;
-        }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary);
-        }
+    /* Utilities */
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+    }
 
-        .nav-links a:hover::after { width: 100%; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .28rem .7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--primary);
+      font-size: .82rem;
+      font-weight: 600;
+    }
 
-        .btn-cta {
-            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-            border: 1px solid transparent;
-        }
+    .pill {
+      font-size: .72rem;
+      padding: .22rem .6rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.10);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      white-space: nowrap;
+    }
 
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-        }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: .55rem;
+      padding: .72rem 1.05rem;
+      border-radius: var(--radius-full);
+      font-weight: 650;
+      font-size: .92rem;
+      border: 1px solid transparent;
+      transition: var(--t);
+      cursor: pointer;
+      user-select: none;
+    }
 
-        /* --- HERO SECTION --- */
-        section { padding: 4rem 0; }
-        
-        #hero { padding-top: 3rem; padding-bottom: 4rem; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.22);
+    }
 
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(56, 189, 248, 0.35); }
 
-        .hero-content h1 {
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .btn-outline {
+      background: rgba(56, 189, 248, 0.06);
+      border-color: rgba(56, 189, 248, 0.28);
+      color: var(--primary);
+    }
 
-        .highlight-text {
-            color: var(--primary);
-            -webkit-text-fill-color: var(--primary);
-        }
+    .btn-outline:hover { background: rgba(56, 189, 248, 0.14); }
 
-        .hero-desc {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 90%;
-        }
+    .btn:focus-visible { outline: none; box-shadow: var(--focus); }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-        }
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(2, 6, 23, 0.82);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
 
-        .tech-badge {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--glass-border);
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .85rem 0;
+      gap: 1rem;
+    }
 
-        .tech-badge b { color: var(--primary); }
+    .nav-left { display: flex; align-items: center; gap: .9rem; min-width: 220px; }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+    .nav-avatar {
+      width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(56, 189, 248, 0.30);
+    }
 
-        .btn-outline {
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--radius-full);
-            font-weight: 500;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            color: var(--primary);
-            background: rgba(56, 189, 248, 0.05);
-        }
+    .nav-info span { display: block; line-height: 1.15; }
+    .nav-name { font-weight: 800; font-size: .98rem; }
+    .nav-role { font-size: .78rem; color: var(--muted); }
 
-        .btn-outline:hover {
-            background: rgba(56, 189, 248, 0.15);
-        }
+    nav.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    nav.nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .9rem;
+      position: relative;
+      padding: .25rem 0;
+    }
 
-        /* Hero Profile Card (Glassmorphism) */
-        .profile-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
+    nav.nav-links a.active, nav.nav-links a:hover { color: var(--primary); }
+    nav.nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      height: 2px;
+      width: 0;
+      background: var(--primary);
+      transition: var(--t);
+      border-radius: 999px;
+    }
 
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
+    nav.nav-links a.active::after, nav.nav-links a:hover::after { width: 100%; }
 
-        .profile-avatar-large {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 4px solid rgba(56, 189, 248, 0.2);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-            position: relative;
-            z-index: 1;
-        }
+    /* Mobile */
+    .nav-actions { display: flex; align-items: center; gap: .7rem; }
+    .icon-btn {
+      width: 42px; height: 42px;
+      display: none;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(56,189,248,.08);
+      border: 1px solid rgba(56,189,248,.22);
+    }
+    .icon-btn:focus-visible { outline: none; box-shadow: var(--focus); }
 
-        .profile-role {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 99px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            position: relative; z-index: 1;
-        }
+    .mobile-panel {
+      display: none;
+      padding: .75rem 0 1rem;
+    }
 
-        .profile-bio {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            position: relative; z-index: 1;
-        }
+    .mobile-links {
+      display: grid;
+      gap: .35rem;
+    }
 
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            border-top: 1px solid var(--glass-border);
-            padding-top: 1.5rem;
-            position: relative; z-index: 1;
-        }
+    .mobile-links a {
+      padding: .7rem .9rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.55);
+      color: var(--muted);
+      font-weight: 650;
+    }
 
-        .stat-item h4 { font-size: 1.2rem; color: #fff; margin-bottom: 0.2rem; }
-        .stat-item p { font-size: 0.75rem; color: var(--text-muted); }
+    .mobile-links a:hover { color: var(--primary); border-color: rgba(56,189,248,.25); }
 
-        /* --- COMMON SECTIONS --- */
-        .section-header { margin-bottom: 2.5rem; }
-        .section-tag {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.75rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .section-title { font-size: 2rem; font-weight: 700; color: white; }
+    /* Sections */
+    section { padding: 4.2rem 0; }
+    #hero { padding: 3.2rem 0 4.2rem; }
 
-        /* --- PROJECTS GRID --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
+    .section-header { margin-bottom: 2.2rem; }
+    .section-tag {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      color: var(--primary);
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: .55rem;
+    }
 
-        .project-card {
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
+    .section-title { font-size: clamp(1.6rem, 2.7vw, 2.05rem); font-weight: 800; }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.3);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-        }
+    /* HERO */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
 
-        .tech-pill-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
+    .hero-title {
+      font-size: clamp(2.1rem, 4.8vw, 3.15rem);
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .pill {
-            font-size: 0.7rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-        }
+    .hero-title .highlight {
+      color: var(--primary);
+      -webkit-text-fill-color: var(--primary);
+    }
 
-        .project-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
-        .project-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
-        
-        .project-link {
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .project-link:hover { color: var(--primary); }
+    .hero-desc { color: var(--muted); font-size: 1.06rem; max-width: 56ch; margin-bottom: 1.4rem; }
 
-        /* --- SKILLS --- */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .skill-box {
-            background: rgba(30, 41, 59, 0.3);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-        }
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+      margin: 1rem 0 1.6rem;
+    }
 
-        .skill-box h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
-        
-        .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .skill-tag {
-            font-size: 0.8rem;
-            background: rgba(15, 23, 42, 0.8);
-            padding: 0.3rem 0.7rem;
-            border-radius: 99px;
-            border: 1px solid #334155;
-            color: #cbd5e1;
-        }
+    .fact {
+      padding: .9rem .95rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.55);
+    }
 
-        /* --- TIMELINE (Experience) --- */
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-            border-left: 2px solid #334155;
-        }
+    .fact b { display: block; font-size: .92rem; margin-bottom: .12rem; }
+    .fact span { display: block; font-size: .82rem; color: var(--muted); }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--primary);
-            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
-        }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.4rem; }
 
-        .timeline-date { font-size: 0.8rem; color: var(--primary); margin-bottom: 0.3rem; }
-        .timeline-title { font-size: 1.1rem; color: white; }
-        .timeline-org { font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.8rem; }
-        .timeline-desc li { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.3rem; }
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .42rem .7rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.45);
+      color: #cbd5e1;
+      font-size: .86rem;
+      font-weight: 550;
+    }
 
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--glass-border);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            background: rgba(2, 6, 23, 0.9);
-        }
+    .tech-badge b { color: var(--primary); font-weight: 800; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .hero-layout { grid-template-columns: 1fr; text-align: center; }
-            .hero-buttons, .tech-stack { justify-content: center; }
-            .skills-container { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Mobile Menu could be added here */
-        }
-    </style>
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+    /* Profile card */
+    .profile-card {
+      border-radius: 24px;
+      padding: 1.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      inset: -60% -40% auto -40%;
+      height: 220%;
+      background: radial-gradient(circle, rgba(56,189,248,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .profile-card-inner { position: relative; z-index: 1; text-align: center; }
+
+    .profile-avatar-large {
+      width: 132px; height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.15rem;
+      border: 4px solid rgba(56, 189, 248, 0.18);
+      box-shadow: 0 0 34px rgba(56, 189, 248, 0.18);
+    }
+
+    .profile-bio { color: var(--muted); font-size: .92rem; margin: .65rem auto 1.25rem; max-width: 40ch; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .7rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.15rem;
+      margin-top: 1.2rem;
+    }
+
+    .stat {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.18);
+      padding: .9rem .65rem;
+    }
+
+    .stat h4 { font-size: 1.18rem; margin-bottom: .1rem; }
+    .stat p { font-size: .78rem; color: var(--muted); }
+
+    /* ABOUT */
+    .about-card {
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.40);
+    }
+
+    .about-card p { color: #cbd5e1; }
+    .about-card p + p { margin-top: .85rem; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+
+    .skill-box {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.30);
+      padding: 1.35rem;
+    }
+
+    .skill-box h3 {
+      display: flex; align-items: center; gap: .55rem;
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: .85rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+    .skill-tag {
+      font-size: .82rem;
+      padding: .32rem .7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid #334155;
+      background: rgba(15, 23, 42, 0.82);
+      color: #cbd5e1;
+    }
+
+    /* PROJECTS */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .filter-btn {
+      padding: .45rem .8rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.45);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .82rem;
+      cursor: pointer;
+      transition: var(--t);
+    }
+
+    .filter-btn:hover { border-color: rgba(56,189,248,.25); color: var(--primary); }
+    .filter-btn.active { border-color: rgba(56,189,248,.35); color: var(--primary); background: rgba(56,189,248,.10); }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.15rem; }
+
+    .project-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: var(--t);
+      position: relative;
+    }
+
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.28); box-shadow: 0 18px 40px -18px rgba(0,0,0,.7); }
+
+    .project-thumb {
+      width: 100%;
+      height: 168px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.25);
+      overflow: hidden;
+      margin-bottom: .9rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: .55rem;
+    }
+
+    .project-title { font-size: 1.07rem; font-weight: 850; }
+    .project-desc { color: var(--muted); font-size: .9rem; margin-bottom: .8rem; }
+
+    .project-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .55rem;
+      margin: .5rem 0 .95rem;
+    }
+
+    .metric {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.18);
+      padding: .75rem .8rem;
+    }
+
+    .metric b { display: block; font-size: .92rem; }
+    .metric span { display: block; font-size: .78rem; color: var(--muted); }
+
+    .project-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+    .project-links a { font-size: .9rem; font-weight: 700; }
+
+    /* EXPERIENCE */
+    .timeline { max-width: 840px; }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 1.6rem;
+      border-left: 2px solid #334155;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: .15rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.18);
+    }
+
+    .timeline-date { font-size: .8rem; color: var(--primary); font-weight: 800; margin-bottom: .2rem; }
+    .timeline-title { font-size: 1.08rem; font-weight: 850; }
+    .timeline-org { color: var(--muted); margin-bottom: .7rem; }
+    .timeline-desc li { color: #cbd5e1; font-size: .92rem; margin-bottom: .35rem; }
+
+    /* CONTACT */
+    .contact-card {
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(30,41,59,0.75), rgba(15,23,42,0.92));
+      padding: 2.7rem 1.9rem;
+      text-align: center;
+    }
+
+    .contact-card p { color: #cbd5e1; max-width: 64ch; margin: .6rem auto 1.6rem; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+      background: rgba(2, 6, 23, 0.88);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .quick-facts { grid-template-columns: 1fr; }
+      nav.nav-links { display: none; }
+      .icon-btn { display: grid; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
+      .btn-primary:hover, .project-card:hover { transform: none; }
+    }
+  </style>
 </head>
+
 <body>
-
-<header>
-    <div class="container nav">
-        <div class="nav-left">
-            <img src="avatar.jpg" alt="Cuong Avatar" class="nav-avatar">
-            <div class="nav-info">
-                <span class="nav-name">Bùi Mạnh Cường</span>
-                <span class="nav-role">Intern Data Analyst</span>
-            </div>
-        </div>
-        <nav class="nav-links">
-            <a href="#about">Giới thiệu</a>
-            <a href="#skills">Kỹ năng</a>
-            <a href="#projects">Dự án</a>
-            <a href="#experience">Hành trình</a>
-        </nav>
-        <a href="#contact" class="btn-cta">Liên hệ</a>
-    </div>
-</header>
-
-<main>
-    <section id="hero">
-        <div class="container hero-layout">
-            <div class="hero-content">
-                <span class="section-tag">Xin chào, mình là</span>
-                <h1>Data Analyst tập trung vào <span class="highlight-text">Insight & Tăng trưởng</span></h1>
-                <p class="hero-desc">
-                    Mình biến dữ liệu thô thành những câu chuyện có ý nghĩa, giúp doanh nghiệp ra quyết định chính xác hơn thông qua Python, SQL và Power BI.
-                </p>
-                
-                <div class="tech-stack">
-                    <div class="tech-badge"><b>Python</b> Pandas, Matplotlib</div>
-                    <div class="tech-badge"><b>SQL</b> MySQL, BigQuery</div>
-                    <div class="tech-badge"><b>BI</b> Power BI, Excel</div>
-                </div>
-
-                <div class="hero-buttons">
-                    <a href="#" class="btn-cta">Tải CV (PDF)</a>
-                    <a href="#projects" class="btn-outline">Xem dự án</a>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <img src="avatar.jpg" alt="Bùi Mạnh Cường" class="profile-avatar-large">
-                <div class="profile-role">Open to Work</div>
-                <p class="profile-bio">
-                    "Luôn tò mò về dữ liệu và câu chuyện đằng sau những con số."
-                </p>
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <h4>7+</h4>
-                        <p>Dự án cá nhân</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>3+</h4>
-                        <p>Công cụ chính</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>100%</h4>
-                        <p>Nhiệt huyết</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Về bản thân</span>
-                <h2 class="section-title">Tổng quan</h2>
-            </div>
-            <div style="background: rgba(30,41,59,0.4); padding: 2rem; border-radius: 16px; border: 1px solid var(--glass-border);">
-                <p style="color: #cbd5e1; margin-bottom: 1rem;">
-                    Xuất phát điểm từ chuyên ngành <strong>Quản trị Kinh doanh</strong>, mình có lợi thế trong việc hiểu bối cảnh kinh doanh của dữ liệu. Mình không chỉ viết code hay truy vấn SQL, mà mình luôn tự hỏi: <em>"Dữ liệu này giúp gì cho doanh nghiệp?"</em>.
-                </p>
-                <p style="color: #cbd5e1;">
-                    Mình đam mê việc khai phá dữ liệu (EDA), trực quan hóa (Visualization) và đang hướng tới mục tiêu trở thành một <strong>Full-stack Data Analyst</strong> chuyên nghiệp.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Bộ kỹ năng</span>
-                <h2 class="section-title">Công cụ & Tư duy</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill-box">
-                    <h3>📊 Phân tích & Xử lý</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">EDA</span>
-                        <span class="skill-tag">Data Cleaning</span>
-                        <span class="skill-tag">Thống kê mô tả</span>
-                        <span class="skill-tag">Consumer Behavior</span>
-                    </div>
-                </div>
-                <div class="skill-box">
-                    <h3>💻 Lập trình & CSDL</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Python (Pandas)</span>
-                        <span class="skill-tag">SQL (Window Func)</span>
-                        <span class="skill-tag">Database Design</span>
-                        <span class="skill-tag">Web Scraping</span>
-                    </div>
-                </div>
-                <div class="skill-box">
-                    <h3>📈 Trực quan hóa</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Power BI (DAX)</span>
-                        <span class="skill-tag">Matplotlib/Seaborn</span>
-                        <span class="skill-tag">Dashboard Design</span>
-                        <span class="skill-tag">Excel</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Portfolio</span>
-                <h2 class="section-title">Dự án tiêu biểu</h2>
-            </div>
-            
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">Python</span>
-                        <span class="pill">Pandas</span>
-                        <span class="pill">Matplotlib</span>
-                    </div>
-                    <h3 class="project-title">Phân tích Kinh doanh Tech Store</h3>
-                    <p class="project-desc">Pipeline xử lý dữ liệu từ nhiều nguồn CSV, trích xuất đặc trưng và trực quan hóa hiệu suất kinh doanh đa chiều.</p>
-                    <a href="https://github.com/CuongDAol/phantichkinhdoanhcuahangcongnghe" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-
-                <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">Web Crawler</span>
-                        <span class="pill">Selenium</span>
-                        <span class="pill">MySQL</span>
-                    </div>
-                    <h3 class="project-title">Mobile Phone Market Analysis</h3>
-                    <p class="project-desc">Tool tự động crawl dữ liệu TGDĐ, chuẩn hóa ETL vào MySQL và phân tích phân khúc giá thị trường.</p>
-                    <a href="https://github.com/CuongDAol/Phantichhangdienthoai" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-
-                <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">Finance</span>
-                        <span class="pill">Scraping</span>
-                        <span class="pill">Jupyter</span>
-                    </div>
-                    <h3 class="project-title">FPT Stock Financial Analysis</h3>
-                    <p class="project-desc">Thu thập BCTC tự động từ Vietstock, làm sạch dữ liệu tài chính và đánh giá sức khỏe doanh nghiệp FPT qua các năm.</p>
-                    <a href="https://github.com/CuongDAol/cophieufpt" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-
-                <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">Power BI</span>
-                        <span class="pill">Excel</span>
-                        <span class="pill">KPIs</span>
-                    </div>
-                    <h3 class="project-title">Sales & Inventory Optimization</h3>
-                    <p class="project-desc">Dashboard Power BI tương tác theo dõi KPI doanh số, tỷ lệ hết hàng và tối ưu hóa nhập kho.</p>
-                    <a href="https://github.com/CuongDAol/BSS_test" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-
-                 <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">SQL</span>
-                        <span class="pill">RDBMS</span>
-                        <span class="pill">Query Optimization</span>
-                    </div>
-                    <h3 class="project-title">Library Management System</h3>
-                    <p class="project-desc">Thiết kế CSDL quan hệ, viết truy vấn phức tạp (JOIN, CTE) thống kê độc giả và tối ưu hóa hiệu suất DB.</p>
-                    <a href="https://github.com/CuongDAol/library_project" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-
-                 <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">Machine Learning</span>
-                        <span class="pill">Folium</span>
-                        <span class="pill">Plotly Dash</span>
-                    </div>
-                    <h3 class="project-title">SpaceX Launch Prediction</h3>
-                    <p class="project-desc">Quy trình Data Science End-to-End: Crawl API, EDA, Dashboard bản đồ và mô hình ML dự đoán hạ cánh.</p>
-                    <a href="https://github.com/CuongDAol/ibm-pj" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-
-                 <article class="project-card">
-                    <div class="tech-pill-container">
-                        <span class="pill">Python</span>
-                        <span class="pill">Business Insight</span>
-                    </div>
-                    <h3 class="project-title">Coffee & Tea Sales Analysis</h3>
-                    <p class="project-desc">Đồng bộ dữ liệu báo cáo bán hàng & kế toán, tìm ra khung giờ vàng và xu hướng thanh toán.</p>
-                    <a href="https://github.com/CuongDAol/salecoffeandtee" target="_blank" class="project-link">👉 Xem mã nguồn</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Kinh nghiệm</span>
-                <h2 class="section-title">Hành trình phát triển</h2>
-            </div>
-            <div style="max-width: 800px;">
-                <div class="timeline-item">
-                    <div class="timeline-date">Hiện tại</div>
-                    <h3 class="timeline-title">Thực tập sinh Market Research</h3>
-                    <div class="timeline-org">Công ty TNHH IGA Việt Nam</div>
-                    <ul class="timeline-desc">
-                        <li>Thu thập & phân tích dữ liệu thị trường, đối thủ cạnh tranh.</li>
-                        <li>Xây dựng báo cáo insight hỗ trợ team Marketing & Kinh doanh.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2020 - 2024</div>
-                    <h3 class="timeline-title">Cử nhân Quản trị Kinh doanh</h3>
-                    <div class="timeline-org">Đại học Giao Thông Vận Tải</div>
-                    <ul class="timeline-desc">
-                        <li>Tư duy kinh doanh, tài chính và marketing nền tảng.</li>
-                        <li>Hoạt động: CLB Nhà Doanh Nghiệp Tương Lai, Đội SVTN Đồng Hương Hòa Bình.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container" style="text-align: center;">
-            <div style="background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9)); padding: 3rem; border-radius: 24px; border: 1px solid var(--glass-border);">
-                <h2 style="color: white; margin-bottom: 1rem;">Sẵn sàng cho thử thách mới?</h2>
-                <p style="color: #cbd5e1; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Mình luôn tìm kiếm cơ hội để áp dụng kỹ năng dữ liệu vào bài toán thực tế. Hãy kết nối nếu bạn đang tìm kiếm một Intern/Fresher DA nhiệt huyết.
-                </p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                    <a href="mailto:buipg0801@gmail.com" class="btn-cta">✉️ buipg0801@gmail.com</a>
-                    <a href="tel:0823722038" class="btn-outline" style="color:white; border-color:white;">📞 0823 722 038</a>
-                    <a href="https://github.com/CuongDAol" target="_blank" class="btn-outline" style="color:white; border-color:white;">Github</a>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer>
+  <header>
     <div class="container">
-        <p>© <span id="year"></span> Bùi Mạnh Cường. Built with passion & coffee ☕</p>
+      <div class="nav">
+        <div class="nav-left">
+          <img src="avatar.jpg" alt="Bùi Mạnh Cường" class="nav-avatar" loading="lazy" decoding="async">
+          <div class="nav-info">
+            <span class="nav-name">Bùi Mạnh Cường</span>
+            <span class="nav-role">Intern/Fresher Data Analyst</span>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Điều hướng">
+          <a href="#about">Giới thiệu</a>
+          <a href="#skills">Kỹ năng</a>
+          <a href="#projects">Dự án</a>
+          <a href="#experience">Kinh nghiệm</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#contact" class="btn btn-primary" aria-label="Liên hệ">Liên hệ</a>
+
+          <button class="icon-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-links" aria-label="Điều hướng mobile">
+          <a href="#about">Giới thiệu</a>
+          <a href="#skills">Kỹ năng</a>
+          <a href="#projects">Dự án</a>
+          <a href="#experience">Kinh nghiệm</a>
+          <a href="#contact">Liên hệ</a>
+          <a href="#" id="cvLinkMobile">Tải CV (PDF)</a>
+        </div>
+      </div>
     </div>
-</footer>
+  </header>
 
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <main>
+    <!-- HERO (HR-first) -->
+    <section id="hero">
+      <div class="container hero-layout">
+        <div>
+          <span class="section-tag">Xin chào, mình là</span>
+          <h1 class="hero-title">Data Analyst tập trung vào <span class="highlight">Insight & Tăng trưởng</span></h1>
+          <p class="hero-desc">
+            Mình biến dữ liệu thô thành insight hành động: làm sạch dữ liệu, phân tích, và thiết kế dashboard để hỗ trợ quyết định kinh doanh.
+          </p>
 
+          <!-- HR quick scan (điểm HR cần trong 10s) -->
+          <div class="quick-facts" role="list">
+            <div class="fact" role="listitem">
+              <b>Vị trí</b>
+              <span>Intern / Fresher Data Analyst</span>
+            </div>
+            <div class="fact" role="listitem">
+              <b>Stack chính</b>
+              <span>Python • SQL • Power BI</span>
+            </div>
+            <div class="fact" role="listitem">
+              <b>Điểm mạnh</b>
+              <span>Business context + storytelling</span>
+            </div>
+          </div>
+
+          <div class="tech-stack" aria-label="Kỹ năng chính">
+            <div class="tech-badge"><b>Python</b> Pandas, Matplotlib</div>
+            <div class="tech-badge"><b>SQL</b> MySQL, BigQuery</div>
+            <div class="tech-badge"><b>BI</b> Power BI, Excel</div>
+          </div>
+
+          <div class="hero-buttons">
+            <!-- TODO: thay href bằng link CV thật -->
+            <a href="#" id="cvLink" class="btn btn-primary">Tải CV (PDF)</a>
+            <a href="#projects" class="btn btn-outline">Xem dự án nổi bật</a>
+            <!-- TODO: thay link thật LinkedIn nếu có -->
+            <a href="https://github.com/CuongDAol" target="_blank" rel="noreferrer" class="btn btn-outline">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="profile-card glass" aria-label="Thông tin nhanh">
+          <div class="profile-card-inner">
+            <img src="avatar.jpg" alt="Bùi Mạnh Cường" class="profile-avatar-large" loading="lazy" decoding="async">
+            <div class="badge" title="Trạng thái">Open to Work</div>
+            <p class="profile-bio">“Luôn tò mò về dữ liệu và câu chuyện đằng sau những con số.”</p>
+
+            <div class="stats-row" aria-label="Thành tích">
+              <div class="stat">
+                <h4>7+</h4>
+                <p>Dự án</p>
+              </div>
+              <div class="stat">
+                <h4>2</h4>
+                <p>Dashboard (Power BI)</p>
+              </div>
+              <div class="stat">
+                <h4>1</h4>
+                <p>Internship</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Về bản thân</span>
+          <h2 class="section-title">Tổng quan</h2>
+        </div>
+
+        <div class="about-card">
+          <p>
+            Xuất phát điểm từ <strong>Quản trị Kinh doanh</strong>, mình có lợi thế trong việc hiểu bối cảnh kinh doanh của dữ liệu.
+            Mình không chỉ chạy EDA hay viết SQL, mà luôn hỏi: <em>“Insight này giúp quyết định gì?”</em>
+          </p>
+          <p>
+            Mục tiêu của mình là trở thành một <strong>Full-stack Data Analyst</strong>: tự lấy dữ liệu (scraping/SQL), xử lý,
+            phân tích, và đóng gói kết quả bằng dashboard/câu chuyện.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Bộ kỹ năng</span>
+          <h2 class="section-title">Công cụ & Tư duy</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>📊 Phân tích & Xử lý</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">EDA</span>
+              <span class="skill-tag">Data Cleaning</span>
+              <span class="skill-tag">Thống kê mô tả</span>
+              <span class="skill-tag">Business Insight</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>💻 Lập trình & CSDL</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python (Pandas)</span>
+              <span class="skill-tag">SQL (CTE / JOIN / Window)</span>
+              <span class="skill-tag">Database Design</span>
+              <span class="skill-tag">Web Scraping (Selenium)</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>📈 Trực quan hóa</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Power BI (DAX)</span>
+              <span class="skill-tag">Dashboard Design</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">Excel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (Featured-first + metrics + filter) -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Portfolio</span>
+          <h2 class="section-title">Dự án nổi bật (HR có thể đọc trong 30s)</h2>
+        </div>
+
+        <div class="filters" aria-label="Lọc dự án">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="sql">SQL</button>
+          <button class="filter-btn" data-filter="powerbi">Power BI</button>
+          <button class="filter-btn" data-filter="scraping">Scraping</button>
+          <button class="filter-btn" data-filter="ml">ML</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Featured: Tech Store (has strong numbers) -->
+          <article class="project-card" data-tags="python">
+            <div class="project-thumb" aria-hidden="true">
+              <!-- TIP: thay thumbnail bằng ảnh dashboard / chart; dùng raw GitHub image nếu muốn -->
+              <img loading="lazy" decoding="async" alt="Tech Store thumbnail" src="https://raw.githubusercontent.com/CuongDAol/phantichkinhdoanhcuahangcongnghe/master/Q1.png" />
+            </div>
+
+            <div class="project-top">
+              <h3 class="project-title">Tech Store Business Performance (2019)</h3>
+              <span class="badge">Featured</span>
+            </div>
+
+            <div class="tech-pill-container" style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Python</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">EDA</span>
+              <span class="pill">Visualization</span>
+            </div>
+
+            <p class="project-desc">
+              Gộp 12 file CSV, làm sạch dữ liệu, tạo feature (Month/Hour/City/Sales) và rút insight kinh doanh để đề xuất tăng trưởng.
+            </p>
+
+            <div class="project-metrics" aria-label="Kết quả nổi bật">
+              <div class="metric"><b>186,850</b><span>giao dịch được phân tích</span></div>
+              <div class="metric"><b>~4.6M</b><span>doanh thu đỉnh (tháng 12)</span></div>
+            </div>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/phantichkinhdoanhcuahangcongnghe" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <a class="btn btn-primary" href="https://github.com/CuongDAol/phantichkinhdoanhcuahangcongnghe#b%C3%A1o-c%C3%A1o-ph%C3%A2n-t%C3%ADch-hi%E1%BB%87u-su%E1%BA%A5t-kinh-doanh-c%E1%BB%ADa-h%C3%A0ng-c%C3%B4ng-ngh%E1%BB%87-n%C4%83m-2019" target="_blank" rel="noreferrer">Case study</a>
+            </div>
+          </article>
+
+          <!-- Featured: Coffee & Tea (has action plan + AOV insight) -->
+          <article class="project-card" data-tags="python">
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="Coffee & Tea thumbnail" src="https://raw.githubusercontent.com/CuongDAol/salecoffeandtee/main/%C4%90%E1%BB%93ng%20b%E1%BB%99%20d%E1%BB%AF%20li%E1%BB%87u%20b%C3%A1o%20c%C3%A1o%20b%C3%A1n%20h%C3%A0ng%20&%20k%E1%BA%BF%20to%C3%A1n.png" onerror="this.closest('.project-thumb').innerHTML='<span style=\'color:var(--muted);font-weight:700\'>Thumbnail</span>'"/>
+            </div>
+
+            <div class="project-top">
+              <h3 class="project-title">Coffee & Tea Sales Analysis (03–06/2023)</h3>
+              <span class="badge">Featured</span>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Python</span>
+              <span class="pill">Business Insight</span>
+              <span class="pill">AOV</span>
+              <span class="pill">Action plan</span>
+            </div>
+
+            <p class="project-desc">
+              So sánh dữ liệu cửa hàng lẻ vs toàn chuỗi, phân tích sản phẩm/danh mục, hành vi theo thời gian và đề xuất tối ưu vận hành.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric"><b>4 tháng</b><span>01/03/2023 → 30/06/2023</span></div>
+              <div class="metric"><b>+~1,275đ</b><span>AOV tăng khi có khuyến mãi</span></div>
+            </div>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/salecoffeandtee" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <a class="btn btn-primary" href="https://github.com/CuongDAol/salecoffeandtee#t%E1%BB%95ng-h%E1%BB%A3p-ph%C3%A2n-t%C3%ADch-so-s%C3%A1nh--c%C3%A1c-insight-quan-tr%E1%BB%8Dng" target="_blank" rel="noreferrer">Case study</a>
+            </div>
+          </article>
+
+          <!-- Featured: Sales & Inventory (Power BI + KPI) -->
+          <article class="project-card" data-tags="powerbi python">
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="Sales & Inventory thumbnail" src="https://raw.githubusercontent.com/CuongDAol/BSS_test/main/preview.png" onerror="this.closest('.project-thumb').innerHTML='<span style=\'color:var(--muted);font-weight:700\'>Power BI Dashboard</span>'"/>
+            </div>
+
+            <div class="project-top">
+              <h3 class="project-title">Sales & Inventory Optimization (Power BI)</h3>
+              <span class="badge">Featured</span>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Power BI</span>
+              <span class="pill">KPI</span>
+              <span class="pill">Python</span>
+              <span class="pill">Excel/CSV</span>
+            </div>
+
+            <p class="project-desc">
+              Phân tích bán hàng & sản phẩm bằng Python, thiết kế báo cáo Power BI theo KPI: doanh thu, đơn hàng, tồn kho, top SKU.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric"><b>Power BI</b><span>Thẻ KPI, map, top SKU</span></div>
+              <div class="metric"><b>Insight</b><span>OOS (tồn=0) nhưng vẫn có đơn</span></div>
+            </div>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/BSS_test" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <!-- TIP: nếu bạn publish Power BI service hoặc có video demo, thay link này -->
+              <a class="btn btn-primary" href="https://github.com/CuongDAol/BSS_test#c%C3%A1c-bi%E1%BB%83u-%C4%91%E1%BB%93-power-bi" target="_blank" rel="noreferrer">Dashboard notes</a>
+            </div>
+          </article>
+
+          <!-- Other projects (keep) -->
+          <article class="project-card" data-tags="scraping python">
+            <div class="project-thumb" aria-hidden="true"><span style="color:var(--muted);font-weight:700">Crawler + ETL</span></div>
+            <div class="project-top"><h3 class="project-title">Mobile Phone Market Analysis</h3></div>
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Scraping</span><span class="pill">Selenium</span><span class="pill">MySQL</span>
+            </div>
+            <p class="project-desc">Tự động crawl dữ liệu, chuẩn hóa & ETL vào MySQL, phân tích phân khúc giá thị trường.</p>
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/Phantichhangdienthoai" target="_blank" rel="noreferrer">Mã nguồn</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="python">
+            <div class="project-thumb" aria-hidden="true"><span style="color:var(--muted);font-weight:700">Finance EDA</span></div>
+            <div class="project-top"><h3 class="project-title">FPT Stock Financial Analysis</h3></div>
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Scraping</span><span class="pill">Finance</span><span class="pill">Jupyter</span>
+            </div>
+            <p class="project-desc">Thu thập BCTC (Vietstock), làm sạch dữ liệu tài chính, đánh giá sức khỏe doanh nghiệp theo năm.</p>
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/cophieufpt" target="_blank" rel="noreferrer">Mã nguồn</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="sql">
+            <div class="project-thumb" aria-hidden="true"><span style="color:var(--muted);font-weight:700">DB Design</span></div>
+            <div class="project-top"><h3 class="project-title">Library Management System</h3></div>
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">SQL</span><span class="pill">CTE</span><span class="pill">JOIN</span>
+            </div>
+            <p class="project-desc">Thiết kế CSDL quan hệ, viết truy vấn thống kê, tối ưu hóa truy vấn phục vụ báo cáo.</p>
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/library_project" target="_blank" rel="noreferrer">Mã nguồn</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="ml">
+            <div class="project-thumb" aria-hidden="true"><span style="color:var(--muted);font-weight:700">End-to-End DS</span></div>
+            <div class="project-top"><h3 class="project-title">SpaceX Launch Prediction</h3></div>
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Machine Learning</span><span class="pill">Plotly</span><span class="pill">Folium</span>
+            </div>
+            <p class="project-desc">Pipeline DS: crawl API, EDA, dashboard bản đồ và mô hình ML dự đoán hạ cánh.</p>
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/ibm-pj" target="_blank" rel="noreferrer">Mã nguồn</a>
+            </div>
+          </article>
+        </div>
+
+        <p style="color:var(--muted);margin-top:1rem;font-size:.92rem;">
+          Tip: Để HR xem nhanh hơn, bạn nên thêm <b>ảnh dashboard</b> hoặc <b>gif demo</b> cho Power BI và mỗi dự án “Featured” 1 link “Case study”.
+        </p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kinh nghiệm</span>
+          <h2 class="section-title">Hành trình phát triển</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Hiện tại</div>
+            <h3 class="timeline-title">Thực tập sinh Market Research</h3>
+            <div class="timeline-org">Công ty TNHH IGA Việt Nam</div>
+            <ul class="timeline-desc">
+              <li>Thu thập & phân tích dữ liệu thị trường/đối thủ để hỗ trợ quyết định Marketing & Kinh doanh.</li>
+              <li>Xây dựng báo cáo insight định kỳ (template + biểu đồ), tập trung vào khuyến nghị hành động.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 – 2024</div>
+            <h3 class="timeline-title">Cử nhân Quản trị Kinh doanh</h3>
+            <div class="timeline-org">Đại học Giao Thông Vận Tải</div>
+            <ul class="timeline-desc">
+              <li>Nền tảng tư duy kinh doanh, tài chính, marketing.</li>
+              <li>Hoạt động: CLB Nhà Doanh Nghiệp Tương Lai, Đội SVTN Đồng Hương Hòa Bình.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2 style="font-size:1.7rem;font-weight:900;">Sẵn sàng cho thử thách mới?</h2>
+          <p>
+            Mình đang tìm cơ hội Intern/Fresher Data Analyst để áp dụng Python/SQL/Power BI vào bài toán thực tế.
+            Nếu bạn cần một bạn DA có tư duy kinh doanh và làm được dashboard/insight, hãy kết nối với mình.
+          </p>
+
+          <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+            <a href="mailto:buipg0801@gmail.com" class="btn btn-primary">✉️ Email</a>
+            <a href="tel:0823722038" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.35);">📞 0823 722 038</a>
+            <a href="https://github.com/CuongDAol" target="_blank" rel="noreferrer" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.35);">GitHub</a>
+            <!-- TODO: thêm LinkedIn nếu có -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Bùi Mạnh Cường. Built with passion & coffee ☕</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobilePanel.style.display === 'block';
+      mobilePanel.style.display = isOpen ? 'none' : 'block';
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Close mobile menu after clicking a link
+    mobilePanel?.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.tagName === 'A') {
+        mobilePanel.style.display = 'none';
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Active nav link based on scroll
+    const sections = ['about','skills','projects','experience','contact']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const navLinks = Array.from(document.querySelectorAll('nav.nav-links a'));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+      });
+    }, { root: null, threshold: 0.35 });
+
+    sections.forEach(s => io.observe(s));
+
+    // Project filters
+    const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+    const projectCards = Array.from(document.querySelectorAll('.project-card'));
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+
+        projectCards.forEach(card => {
+          const tags = (card.dataset.tags || '').split(' ').filter(Boolean);
+          const show = filter === 'all' ? true : tags.includes(filter);
+          card.style.display = show ? 'flex' : 'none';
+        });
+      });
+    });
+
+    // CV link (one place to update)
+    const CV_URL = '#'; // TODO: thay bằng link CV thật (Google Drive / PDF host)
+    document.getElementById('cvLink')?.setAttribute('href', CV_URL);
+    document.getElementById('cvLinkMobile')?.setAttribute('href', CV_URL);
+  </script>
 </body>
-
 </html>
