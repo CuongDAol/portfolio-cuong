@@ -8,25 +8,19 @@
   <meta name="description" content="Portfolio Bùi Mạnh Cường - Intern/Fresher Data Analyst (Python, SQL, Power BI). Project case studies, dashboards & business insights." />
   <meta name="theme-color" content="#020617" />
 
-  <!-- Canonical (đổi lại domain nếu cần) -->
   <link rel="canonical" href="https://cuongdaol.github.io/portfolio-cuong/" />
 
-  <!-- Fonts (performance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Bùi Mạnh Cường | Data Analyst" />
   <meta property="og:description" content="Intern/Fresher Data Analyst • Python • SQL • Power BI • Projects with business insights" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/featured.jpg" />
   <meta property="og:url" content="https://cuongdaol.github.io/portfolio-cuong/" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD (SEO) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -56,11 +50,9 @@
       --t: 240ms var(--ease);
       --focus: 0 0 0 3px rgba(56, 189, 248, 0.35);
 
-      /* Background */
       --bg-image: url("https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/back.jpg");
     }
 
-    /* Light mode */
     [data-theme="light"] {
       --bg: #f8fafc;
       --panel: rgba(255,255,255,0.72);
@@ -84,7 +76,6 @@
       overflow-x: hidden;
     }
 
-    /* Skip link (a11y) */
     .skip-link {
       position: absolute; left: -999px; top: 10px;
       background: var(--text); color: var(--bg);
@@ -204,7 +195,6 @@
     .icon-btn:focus-visible { outline: none; box-shadow: var(--focus); }
     .icon-btn:hover { background: rgba(56,189,248,.14); }
 
-    /* HEADER */
     header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(2, 6, 23, 0.82);
@@ -244,7 +234,6 @@
     .nav-actions { display: flex; align-items: center; gap: .6rem; }
     .icon-btn.menu { display: none; }
 
-    /* Mobile panel */
     .mobile-panel { display: none; padding: .75rem 0 1rem; }
     .mobile-links { display: grid; gap: .35rem; }
     .mobile-links a, .mobile-links button {
@@ -255,11 +244,11 @@
       color: var(--muted);
       font-weight: 750;
       text-align: left;
+      cursor: pointer;
     }
     [data-theme="light"] .mobile-links a, [data-theme="light"] .mobile-links button { background: rgba(255,255,255,.72); }
     .mobile-links a:hover, .mobile-links button:hover { color: var(--primary); border-color: rgba(56,189,248,.25); }
 
-    /* Sections */
     section { padding: 4.2rem 0; }
     #hero { padding: 3.2rem 0 4.2rem; }
     .section-header { margin-bottom: 2.2rem; }
@@ -271,7 +260,6 @@
     }
     .section-title { font-size: clamp(1.6rem, 2.7vw, 2.05rem); font-weight: 900; }
 
-    /* HERO */
     .hero-layout {
       display: grid;
       grid-template-columns: 1.35fr 1fr;
@@ -325,7 +313,6 @@
     .tech-badge b { color: var(--primary); font-weight: 900; }
     .hero-buttons { display: flex; flex-wrap: wrap; gap: .75rem; }
 
-    /* Profile card */
     .profile-card { border-radius: 24px; padding: 1.9rem; position: relative; overflow: hidden; }
     .profile-card::before {
       content: '';
@@ -359,7 +346,6 @@
     .stat h4 { font-size: 1.18rem; margin-bottom: .1rem; font-weight: 950; }
     .stat p { font-size: .78rem; color: var(--muted); }
 
-    /* ABOUT */
     .about-card {
       border-radius: var(--radius);
       padding: 1.8rem;
@@ -370,7 +356,6 @@
     .about-card p { color: color-mix(in srgb, var(--text), var(--muted) 25%); }
     .about-card p + p { margin-top: .85rem; }
 
-    /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
     .skill-box {
       border-radius: 16px;
@@ -395,7 +380,6 @@
     }
     [data-theme="light"] .skill-tag { background: rgba(255,255,255,.85); }
 
-    /* PROJECTS */
     .projects-toolbar {
       display: flex;
       gap: .75rem;
@@ -423,9 +407,7 @@
     }
     .search input::placeholder { color: var(--muted); }
 
-    .filters {
-      display: flex; flex-wrap: wrap; gap: .55rem;
-    }
+    .filters { display: flex; flex-wrap: wrap; gap: .55rem; }
     .filter-btn {
       padding: .45rem .8rem;
       border-radius: var(--radius-full);
@@ -501,7 +483,36 @@
 
     .project-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
 
-    /* EXPERIENCE */
+    /* ✅ Hover to open (desktop) */
+    .js-open-modal { position: relative; }
+    .js-open-modal::after{
+      content:"Hover để xem nhanh";
+      position:absolute;
+      left:50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%) translateY(6px);
+      padding: .35rem .55rem;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 800;
+      white-space: nowrap;
+      background: rgba(2,6,23,.85);
+      border: 1px solid rgba(255,255,255,.10);
+      color: #fff;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--t);
+      box-shadow: 0 18px 40px -22px rgba(0,0,0,.75);
+    }
+    [data-theme="light"] .js-open-modal::after{
+      background: rgba(255,255,255,.92);
+      color: #0f172a;
+      border-color: rgba(2,6,23,.10);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .js-open-modal:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
     .timeline { max-width: 840px; }
     .timeline-item {
       position: relative;
@@ -525,7 +536,6 @@
     .timeline-org { color: var(--muted); margin-bottom: .7rem; }
     .timeline-desc li { color: color-mix(in srgb, var(--text), var(--muted) 22%); font-size: .92rem; margin-bottom: .35rem; }
 
-    /* CONTACT */
     .contact-card {
       border-radius: 26px;
       border: 1px solid var(--border);
@@ -557,7 +567,6 @@
     }
     [data-theme="light"] footer { background: rgba(248,250,252,0.9); }
 
-    /* Modal (case study quick view) */
     .modal {
       position: fixed; inset: 0;
       display: none;
@@ -596,7 +605,6 @@
     .kv-row b { font-weight: 900; }
     .modal-actions { display: flex; gap: .6rem; flex-wrap: wrap; padding: 0 1.15rem 1.15rem; }
 
-    /* Back-to-top */
     .to-top {
       position: fixed;
       right: 16px; bottom: 16px;
@@ -646,10 +654,8 @@
 
         <div class="nav-actions">
           <a href="#projects" class="btn btn-outline" aria-label="Xem dự án">Xem dự án</a>
-          <a href="#" id="cvTop" class="btn btn-primary" aria-label="Tải CV">Tải CV</a>
 
           <button class="icon-btn" id="themeBtn" aria-label="Đổi giao diện (dark/light)">
-            <!-- sun/moon -->
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
               <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -671,7 +677,6 @@
           <a href="#projects">Dự án</a>
           <a href="#experience">Kinh nghiệm</a>
           <a href="#contact">Liên hệ</a>
-          <a href="#" id="cvLinkMobile">Tải CV (PDF)</a>
           <button id="themeBtnMobile" type="button">Đổi giao diện (Dark/Light)</button>
         </div>
       </div>
@@ -684,7 +689,6 @@
         <div>
           <span class="section-tag">Xin chào, mình là</span>
 
-          <!-- USP rõ hơn + “định vị” -->
           <div class="hero-sub" aria-label="Điểm nổi bật">
             <span class="badge">Open to Work</span>
             <span class="pill">Python • SQL • Power BI</span>
@@ -713,8 +717,7 @@
           </div>
 
           <div class="hero-buttons">
-            <a href="#" id="cvLink" class="btn btn-primary">⬇️ Tải CV (PDF)</a>
-            <a href="#projects" class="btn btn-outline">⭐ Xem dự án nổi bật</a>
+            <a href="#projects" class="btn btn-primary">⭐ Xem dự án nổi bật</a>
             <a href="https://github.com/CuongDAol" target="_blank" rel="noreferrer" class="btn btn-outline">GitHub</a>
           </div>
         </div>
@@ -724,7 +727,6 @@
             <img id="heroAvatar" src="avatar.jpg" alt="Bùi Mạnh Cường" class="profile-avatar-large" loading="lazy" decoding="async">
             <p class="profile-bio">“Luôn tò mò về dữ liệu và câu chuyện đằng sau những con số.”</p>
 
-            <!-- Animated counters -->
             <div class="stats-row" aria-label="Thành tích">
               <div class="stat"><h4 data-counter="7">0</h4><p>Dự án</p></div>
               <div class="stat"><h4 data-counter="2">0</h4><p>Dashboard</p></div>
@@ -803,7 +805,6 @@
           <h2 class="section-title">Dự án nổi bật</h2>
         </div>
 
-        <!-- Toolbar: search + filters (quét nhanh cho recruiter) -->
         <div class="projects-toolbar">
           <div class="search" role="search" aria-label="Tìm dự án">
             <span aria-hidden="true">🔎</span>
@@ -966,8 +967,8 @@
             data-title="FPT Stock Financial Analysis"
             data-one="Thu thập BCTC, làm sạch dữ liệu tài chính, đánh giá sức khỏe doanh nghiệp theo năm."
             data-challenge="BCTC nhiều kỳ, nhiều chỉ số; cần chuẩn hóa để so sánh theo năm và rút chỉ báo sức khỏe."
-            data-approach="Scrape/collect; clean; phân tích chỉ số tăng trưởng, biên lợi nhuận, cấu trúc tài sản/nợ."
-            data-impact="Tổng quan sức khỏe tài chính theo năm; highlight các biến động đáng chú ý phục vụ đầu tư/định hướng."
+            data-approach="Collect & clean; phân tích chỉ số tăng trưởng, biên lợi nhuận, cấu trúc tài sản/nợ; highlight biến động."
+            data-impact="Tổng quan sức khỏe tài chính theo năm; điểm nhấn biến động đáng chú ý phục vụ phân tích."
             data-stack="Python, Finance, EDA"
             data-link="https://github.com/CuongDAol/cophieufpt">
             <div class="project-thumb" aria-hidden="true">
@@ -995,7 +996,7 @@
             data-title="Library Management System"
             data-one="Thiết kế CSDL quan hệ, viết truy vấn thống kê, tối ưu hóa truy vấn phục vụ báo cáo."
             data-challenge="Mô hình hóa thực thể thư viện; truy vấn thống kê lượt mượn, sách trễ hạn, top readers…"
-            data-approach="Thiết kế schema; index cơ bản; query theo JOIN/CTE; xây báo cáo SQL cho các câu hỏi nghiệp vụ."
+            data-approach="Thiết kế schema; query JOIN/CTE/Window; bộ câu hỏi nghiệp vụ phục vụ báo cáo."
             data-impact="Bộ truy vấn phục vụ báo cáo vận hành; minh họa năng lực SQL/DB design."
             data-stack="SQL, CTE, JOIN, Window"
             data-link="https://github.com/CuongDAol/library_project">
@@ -1023,7 +1024,7 @@
           <article class="project-card" data-tags="ml"
             data-title="SpaceX Launch Prediction"
             data-one="Pipeline DS: crawl API, EDA, dashboard bản đồ và mô hình ML dự đoán hạ cánh."
-            data-challenge="Tích hợp dữ liệu từ API; tạo feature; đánh giá mô hình dự đoán thành công hạ cánh."
+            data-challenge="Tích hợp dữ liệu API; tạo feature; đánh giá mô hình dự đoán thành công hạ cánh."
             data-approach="Data pipeline; EDA; map visualization (Folium); model training + evaluation."
             data-impact="Minh họa end-to-end DS workflow; hiểu data + model + storytelling."
             data-stack="ML, Plotly, Folium"
@@ -1112,12 +1113,10 @@
     </div>
   </footer>
 
-  <!-- Back to top -->
   <div class="to-top" id="toTop">
     <button class="icon-btn" type="button" aria-label="Lên đầu trang">⬆️</button>
   </div>
 
-  <!-- Modal -->
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <div class="modal-head">
@@ -1157,25 +1156,17 @@
   </div>
 
   <script>
-    // ====== CONFIG (chỉ cần cập nhật 1 lần) ======
-    const CV_URL = '#'; // TODO: thay bằng link CV PDF thật (Google Drive / GitHub raw / Dropbox...)
-    const SITE_URL = 'https://cuongdaol.github.io/portfolio-cuong/'; // TODO: đổi nếu cần
+    // ====== CONFIG ======
     const AVATAR_URL = 'avatar.jpg'; // TODO: đảm bảo file tồn tại (hoặc dùng raw github)
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Set avatar in one place
+    // Avatar (one place)
     document.getElementById('navAvatar').src = AVATAR_URL;
     document.getElementById('heroAvatar').src = AVATAR_URL;
 
-    // CV links in one place
-    const setHref = (id, href) => document.getElementById(id)?.setAttribute('href', href);
-    setHref('cvLink', CV_URL);
-    setHref('cvTop', CV_URL);
-    setHref('cvLinkMobile', CV_URL);
-
-    // ====== Theme toggle (dark/light) ======
+    // ====== Theme toggle ======
     const root = document.documentElement;
     const THEME_KEY = 'theme';
     const applyTheme = (t) => root.setAttribute('data-theme', t);
@@ -1264,7 +1255,7 @@
 
     searchInput?.addEventListener('input', applyProjectFilter);
 
-    // ====== Modal (Quick view case study) ======
+    // ====== Modal (Quick view) ======
     const modal = document.getElementById('modal');
     const modalClose = document.getElementById('modalClose');
     const modalTitle = document.getElementById('modalTitle');
@@ -1277,10 +1268,11 @@
     const modalCopy = document.getElementById('modalCopy');
 
     let lastFocus = null;
+    let hoverOpenTimer = null;
+    let hoverCloseTimer = null;
+    let openedByHover = false;
 
-    function openModalFromCard(card) {
-      lastFocus = document.activeElement;
-
+    function fillModalFromCard(card) {
       modalTitle.textContent = card.dataset.title || 'Project';
       modalOne.textContent = card.dataset.one || '';
       modalChallenge.textContent = card.dataset.challenge || '';
@@ -1288,28 +1280,73 @@
       modalImpact.textContent = card.dataset.impact || '';
       modalStack.textContent = card.dataset.stack || '';
       modalLink.href = card.dataset.link || '#';
+    }
+
+    function openModal(card, { byHover = false } = {}) {
+      if (modal.hasAttribute('open')) return;
+      openedByHover = byHover;
+      lastFocus = document.activeElement;
+
+      fillModalFromCard(card);
 
       modal.setAttribute('open', '');
       document.body.style.overflow = 'hidden';
-      modalClose?.focus();
+
+      // focus chỉ khi click (đỡ “giật” khi hover)
+      if (!byHover) modalClose?.focus();
     }
 
     function closeModal() {
+      if (!modal.hasAttribute('open')) return;
       modal.removeAttribute('open');
       document.body.style.overflow = '';
+      openedByHover = false;
       lastFocus?.focus?.();
     }
 
+    // Click: mở modal (hữu ích cho mobile)
     document.querySelectorAll('.js-open-modal').forEach(btn => {
       btn.addEventListener('click', () => {
         const card = btn.closest('.project-card');
-        if (card) openModalFromCard(card);
+        if (card) openModal(card, { byHover: false });
       });
     });
 
+    // Hover: mở modal (chỉ desktop có hover)
+    const canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (canHover) {
+      document.querySelectorAll('.js-open-modal').forEach(btn => {
+        const card = btn.closest('.project-card');
+        if (!card) return;
+
+        btn.addEventListener('mouseenter', () => {
+          clearTimeout(hoverCloseTimer);
+          hoverOpenTimer = setTimeout(() => openModal(card, { byHover: true }), 120);
+        });
+
+        btn.addEventListener('mouseleave', () => {
+          clearTimeout(hoverOpenTimer);
+          // nếu modal đang mở do hover, cho delay chút để người dùng di chuột vào modal
+          hoverCloseTimer = setTimeout(() => {
+            if (openedByHover) closeModal();
+          }, 220);
+        });
+      });
+
+      // Nếu di chuột vào modal thì giữ mở
+      modal.addEventListener('mouseenter', () => {
+        clearTimeout(hoverCloseTimer);
+      });
+      modal.addEventListener('mouseleave', () => {
+        if (!openedByHover) return;
+        hoverCloseTimer = setTimeout(() => closeModal(), 180);
+      });
+    }
+
+    // Close actions
     modalClose?.addEventListener('click', closeModal);
     modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.hasAttribute('open')) closeModal();
     });
@@ -1320,7 +1357,6 @@
         modalCopy.textContent = 'Đã copy ✅';
         setTimeout(() => modalCopy.textContent = 'Copy link', 1200);
       } catch {
-        // Fallback
         const tmp = document.createElement('input');
         tmp.value = modalLink.href;
         document.body.appendChild(tmp);
@@ -1330,7 +1366,7 @@
       }
     });
 
-    // ====== Animated counters (on view) ======
+    // ====== Animated counters ======
     const counters = document.querySelectorAll('[data-counter]');
     const counterIO = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
