@@ -485,6 +485,7 @@
 
     .project-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
 
+    /* ✅ gợi ý nhẹ cho UX: badge "Quick view" xuất hiện khi hover card */
     .qv-hint {
       position: absolute;
       top: 12px;
@@ -509,6 +510,29 @@
     @media (hover: hover) and (pointer: fine) {
       .project-card:hover .qv-hint { opacity: 1; transform: translateY(0); }
     }
+
+    .timeline { max-width: 840px; }
+    .timeline-item {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 1.6rem;
+      border-left: 2px solid color-mix(in srgb, var(--muted), transparent 35%);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: .15rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.18);
+    }
+    .timeline-date { font-size: .8rem; color: var(--primary); font-weight: 950; margin-bottom: .2rem; }
+    .timeline-title { font-size: 1.08rem; font-weight: 950; }
+    .timeline-org { color: var(--muted); margin-bottom: .7rem; }
+    .timeline-desc li { color: color-mix(in srgb, var(--text), var(--muted) 22%); font-size: .92rem; margin-bottom: .35rem; }
 
     .contact-card {
       border-radius: 26px;
@@ -622,20 +646,21 @@
           <a href="#about">Giới thiệu</a>
           <a href="#skills">Kỹ năng</a>
           <a href="#projects">Dự án</a>
+          <a href="#experience">Kinh nghiệm</a>
           <a href="#contact">Liên hệ</a>
         </nav>
 
         <div class="nav-actions">
           <a href="#projects" class="btn btn-outline" aria-label="Xem dự án">Xem dự án</a>
 
-          <button class="icon-btn" id="themeBtn" aria-label="Đổi giao diện (dark/light)" type="button">
+          <button class="icon-btn" id="themeBtn" aria-label="Đổi giao diện (dark/light)">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
               <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </button>
 
-          <button class="icon-btn menu" id="menuBtn" aria-label="Mở menu" aria-expanded="false" type="button">
+          <button class="icon-btn menu" id="menuBtn" aria-label="Mở menu" aria-expanded="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
@@ -648,6 +673,7 @@
           <a href="#about">Giới thiệu</a>
           <a href="#skills">Kỹ năng</a>
           <a href="#projects">Dự án</a>
+          <a href="#experience">Kinh nghiệm</a>
           <a href="#contact">Liên hệ</a>
           <button id="themeBtnMobile" type="button">Đổi giao diện (Dark/Light)</button>
         </div>
@@ -858,4 +884,536 @@
             </div>
 
             <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
-              <span class="pill
+              <span class="pill">Python</span>
+              <span class="pill">Business Insight</span>
+              <span class="pill">AOV</span>
+              <span class="pill">Action plan</span>
+            </div>
+
+            <p class="project-desc">So sánh dữ liệu cửa hàng lẻ vs toàn chuỗi, phân tích hành vi theo thời gian và đề xuất tối ưu vận hành.</p>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/salecoffeandtee" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <button class="btn btn-primary js-open-modal" type="button">Quick view</button>
+            </div>
+          </article>
+
+          <!-- Sales & Inventory -->
+          <article class="project-card" data-tags="powerbi python"
+            data-title="Sales & Inventory Optimization (Power BI)"
+            data-one="Thiết kế báo cáo Power BI theo KPI và rút insight vận hành (doanh thu, đơn hàng, tồn kho, top SKU)."
+            data-challenge="Theo dõi KPI doanh thu/đơn hàng/tồn kho; phát hiện SKU bán nhanh/chậm; tránh thiếu hàng/tồn đọng."
+            data-approach="Mô hình dữ liệu + DAX; thiết kế KPI tiles; phân tích top/bottom SKU; drill-down theo thời gian & danh mục."
+            data-impact="Cải thiện khả năng ra quyết định nhập hàng; ưu tiên SKU hiệu quả; cảnh báo tồn kho bất thường."
+            data-stack="Power BI, DAX, KPI, Python"
+            data-link="https://github.com/CuongDAol/BSS_test">
+            <span class="qv-hint">Quick view</span>
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="Sales & Inventory Optimization - analytics dashboard"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/0ea8f943e686408a2dc453ec86b9b5675d3609d3/18_222_1162-Technology-BlogBanner_728x90.png"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:800&quot;>Sales Thumbnail</span>'" />
+            </div>
+
+            <div class="project-top">
+              <h3 class="project-title">Sales & Inventory Optimization (Power BI)</h3>
+              <span class="badge">Featured</span>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Power BI</span>
+              <span class="pill">KPI</span>
+              <span class="pill">Python</span>
+              <span class="pill">Excel/CSV</span>
+            </div>
+
+            <p class="project-desc">Thiết kế báo cáo Power BI theo KPI và rút insight vận hành (doanh thu, đơn hàng, tồn kho, top SKU).</p>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/BSS_test" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <button class="btn btn-primary js-open-modal" type="button">Quick view</button>
+            </div>
+          </article>
+
+          <!-- Mobile Phone -->
+          <article class="project-card" data-tags="scraping python"
+            data-title="Mobile Phone Market Analysis"
+            data-one="Crawl dữ liệu, chuẩn hóa & ETL vào MySQL, phân tích phân khúc giá thị trường."
+            data-challenge="Dữ liệu web không ổn định; cần chuẩn hóa thông số & giá; xây pipeline ETL lưu trữ dài hạn."
+            data-approach="Selenium scraping; clean & normalize; load MySQL; phân tích phân khúc giá và xu hướng thương hiệu."
+            data-impact="Bản đồ phân khúc giá; gợi ý nhóm sản phẩm cạnh tranh; nền tảng dữ liệu phục vụ dashboard."
+            data-stack="Selenium, Python, MySQL, ETL"
+            data-link="https://github.com/CuongDAol/Phantichhangdienthoai">
+            <span class="qv-hint">Quick view</span>
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="Mobile Phone Market Analysis - smartphone market"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/doanh-so-smartphone-quy-4-5-1.jpg"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:800&quot;>Crawler + ETL</span>'" />
+            </div>
+
+            <div class="project-top"><h3 class="project-title">Mobile Phone Market Analysis</h3></div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Scraping</span><span class="pill">Selenium</span><span class="pill">MySQL</span>
+            </div>
+
+            <p class="project-desc">Crawl dữ liệu, chuẩn hóa & ETL vào MySQL, phân tích phân khúc giá thị trường.</p>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/Phantichhangdienthoai" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <button class="btn btn-primary js-open-modal" type="button">Quick view</button>
+            </div>
+          </article>
+
+          <!-- FPT Stock -->
+          <article class="project-card" data-tags="python"
+            data-title="FPT Stock Financial Analysis"
+            data-one="Thu thập BCTC, làm sạch dữ liệu tài chính, đánh giá sức khỏe doanh nghiệp theo năm."
+            data-challenge="BCTC nhiều kỳ, nhiều chỉ số; cần chuẩn hóa để so sánh theo năm và rút chỉ báo sức khỏe."
+            data-approach="Collect & clean; phân tích chỉ số tăng trưởng, biên lợi nhuận, cấu trúc tài sản/nợ; highlight biến động."
+            data-impact="Tổng quan sức khỏe tài chính theo năm; điểm nhấn biến động đáng chú ý phục vụ phân tích."
+            data-stack="Python, Finance, EDA"
+            data-link="https://github.com/CuongDAol/cophieufpt">
+            <span class="qv-hint">Quick view</span>
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="FPT Stock Financial Analysis - FPT cover"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/FPT-Software-Launches-Office-in-India-Looking-to-Expand-Global-Delivery-Centre-Network.jpg"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:800&quot;>Finance EDA</span>'" />
+            </div>
+
+            <div class="project-top"><h3 class="project-title">FPT Stock Financial Analysis</h3></div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Scraping</span><span class="pill">Finance</span><span class="pill">Jupyter</span>
+            </div>
+
+            <p class="project-desc">Thu thập BCTC (Vietstock), làm sạch dữ liệu tài chính, đánh giá sức khỏe doanh nghiệp theo năm.</p>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/cophieufpt" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <button class="btn btn-primary js-open-modal" type="button">Quick view</button>
+            </div>
+          </article>
+
+          <!-- Library -->
+          <article class="project-card" data-tags="sql"
+            data-title="Library Management System"
+            data-one="Thiết kế CSDL quan hệ, viết truy vấn thống kê, tối ưu hóa truy vấn phục vụ báo cáo."
+            data-challenge="Mô hình hóa thực thể thư viện; truy vấn thống kê lượt mượn, sách trễ hạn, top readers…"
+            data-approach="Thiết kế schema; query JOIN/CTE/Window; bộ câu hỏi nghiệp vụ phục vụ báo cáo."
+            data-impact="Bộ truy vấn phục vụ báo cáo vận hành; minh họa năng lực SQL/DB design."
+            data-stack="SQL, CTE, JOIN, Window"
+            data-link="https://github.com/CuongDAol/library_project">
+            <span class="qv-hint">Quick view</span>
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="Library Management System - SQL schema/code"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/485a0b63-169b-4d49-bdda-dc27cffc373a.png"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:800&quot;>DB Design</span>'" />
+            </div>
+
+            <div class="project-top"><h3 class="project-title">Library Management System</h3></div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">SQL</span><span class="pill">CTE</span><span class="pill">JOIN</span>
+            </div>
+
+            <p class="project-desc">Thiết kế CSDL quan hệ, viết truy vấn thống kê, tối ưu hóa truy vấn phục vụ báo cáo.</p>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/library_project" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <button class="btn btn-primary js-open-modal" type="button">Quick view</button>
+            </div>
+          </article>
+
+          <!-- SpaceX -->
+          <article class="project-card" data-tags="ml"
+            data-title="SpaceX Launch Prediction"
+            data-one="Pipeline DS: crawl API, EDA, dashboard bản đồ và mô hình ML dự đoán hạ cánh."
+            data-challenge="Tích hợp dữ liệu API; tạo feature; đánh giá mô hình dự đoán thành công hạ cánh."
+            data-approach="Data pipeline; EDA; map visualization (Folium); model training + evaluation."
+            data-impact="Minh họa end-to-end DS workflow; hiểu data + model + storytelling."
+            data-stack="ML, Plotly, Folium"
+            data-link="https://github.com/CuongDAol/ibm-pj">
+            <span class="qv-hint">Quick view</span>
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="SpaceX Launch Prediction - rocket launch"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/featured.jpg"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:800&quot;>SpaceX Thumbnail</span>'" />
+            </div>
+
+            <div class="project-top"><h3 class="project-title">SpaceX Launch Prediction</h3></div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
+              <span class="pill">Machine Learning</span><span class="pill">Plotly</span><span class="pill">Folium</span>
+            </div>
+
+            <p class="project-desc">Pipeline DS: crawl API, EDA, dashboard bản đồ và mô hình ML dự đoán hạ cánh.</p>
+
+            <div class="project-links">
+              <a class="btn btn-outline" href="https://github.com/CuongDAol/ibm-pj" target="_blank" rel="noreferrer">Mã nguồn</a>
+              <button class="btn btn-primary js-open-modal" type="button">Quick view</button>
+            </div>
+          </article>
+
+        </div>
+
+        <p id="noResults" style="display:none;margin-top:1rem;color:var(--muted);font-weight:700;">
+          Không tìm thấy dự án phù hợp. Hãy thử keyword khác hoặc chọn “All”.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kinh nghiệm</span>
+          <h2 class="section-title">Hành trình phát triển</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Hiện tại</div>
+            <h3 class="timeline-title">Thực tập sinh Market Research</h3>
+            <div class="timeline-org">Công ty TNHH IGA Việt Nam</div>
+            <ul class="timeline-desc">
+              <li>Thu thập & phân tích dữ liệu thị trường/đối thủ để hỗ trợ quyết định Marketing & Kinh doanh.</li>
+              <li>Xây dựng báo cáo insight định kỳ, tập trung vào khuyến nghị hành động.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 – 2024</div>
+            <h3 class="timeline-title">Cử nhân Quản trị Kinh doanh</h3>
+            <div class="timeline-org">Đại học Giao Thông Vận Tải</div>
+            <ul class="timeline-desc">
+              <li>Nền tảng tư duy kinh doanh, tài chính, marketing.</li>
+              <li>Hoạt động: CLB Nhà Doanh Nghiệp Tương Lai, Đội SVTN Đồng Hương Hòa Bình.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2 style="font-size:1.7rem;font-weight:950;">Sẵn sàng cho thử thách mới?</h2>
+          <p>
+            Mình đang tìm cơ hội Intern/Fresher Data Analyst để áp dụng Python/SQL/Power BI vào bài toán thực tế.
+            Nếu bạn cần một bạn DA có tư duy kinh doanh và làm được dashboard/insight, hãy kết nối với mình.
+          </p>
+
+          <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+            <a href="mailto:buipg0801@gmail.com" class="btn btn-primary">✉️ Email</a>
+            <a href="tel:0823722038" class="btn btn-outline" style="color:var(--text);border-color:color-mix(in srgb, var(--text), transparent 60%);">📞 0823 722 038</a>
+            <a href="https://github.com/CuongDAol" target="_blank" rel="noreferrer" class="btn btn-outline" style="color:var(--text);border-color:color-mix(in srgb, var(--text), transparent 60%);">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Bùi Mạnh Cường. Built with passion & coffee ☕</p>
+    </div>
+  </footer>
+
+  <div class="to-top" id="toTop">
+    <button class="icon-btn" type="button" aria-label="Lên đầu trang">⬆️</button>
+  </div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title" id="modalTitle">Project</div>
+        <button class="icon-btn" id="modalClose" type="button" aria-label="Đóng">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="modalOne"></p>
+        <div class="modal-grid">
+          <div>
+            <div class="modal-kv" style="margin-bottom:1rem;">
+              <div class="kv-row"><b>Challenge</b><span> </span></div>
+              <p id="modalChallenge" style="margin-top:.55rem;"></p>
+            </div>
+            <div class="modal-kv">
+              <div class="kv-row"><b>Approach</b><span> </span></div>
+              <p id="modalApproach" style="margin-top:.55rem;"></p>
+            </div>
+          </div>
+          <div>
+            <div class="modal-kv">
+              <div class="kv-row"><b>Impact</b><span> </span></div>
+              <p id="modalImpact" style="margin-top:.55rem;"></p>
+            </div>
+            <div class="modal-kv" style="margin-top:1rem;">
+              <div class="kv-row"><b>Stack</b><span> </span></div>
+              <p id="modalStack" style="margin-top:.55rem;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a class="btn btn-outline" id="modalLink" href="#" target="_blank" rel="noreferrer">Mã nguồn / Repo</a>
+        <button class="btn btn-primary" id="modalCopy" type="button">Copy link</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== CONFIG ======
+    const AVATAR_URL = 'avatar.jpg'; // TODO: đảm bảo file tồn tại (hoặc dùng raw github)
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Avatar (one place)
+    document.getElementById('navAvatar').src = AVATAR_URL;
+    document.getElementById('heroAvatar').src = AVATAR_URL;
+
+    // ====== Theme toggle ======
+    const root = document.documentElement;
+    const THEME_KEY = 'theme';
+    const applyTheme = (t) => root.setAttribute('data-theme', t);
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved) applyTheme(saved);
+
+    const toggleTheme = () => {
+      const current = root.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+      localStorage.setItem(THEME_KEY, next);
+    };
+    document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeBtnMobile')?.addEventListener('click', toggleTheme);
+
+    // ====== Mobile menu ======
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobilePanel.style.display === 'block';
+      mobilePanel.style.display = isOpen ? 'none' : 'block';
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    mobilePanel?.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'A' || target.tagName === 'BUTTON')) {
+        mobilePanel.style.display = 'none';
+        menuBtn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // ====== Active nav link ======
+    const sections = ['about','skills','projects','experience','contact']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const navLinks = Array.from(document.querySelectorAll('nav.nav-links a'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+      });
+    }, { threshold: 0.35 });
+
+    sections.forEach(s => io.observe(s));
+
+    // ====== Project filters + search ======
+    const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+    const projectCards = Array.from(document.querySelectorAll('.project-card'));
+    const searchInput = document.getElementById('projectSearch');
+    const noResults = document.getElementById('noResults');
+
+    let activeFilter = 'all';
+    const normalize = (s) => (s || '').toLowerCase().trim();
+
+    function applyProjectFilter() {
+      const q = normalize(searchInput?.value);
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(' ').filter(Boolean);
+        const title = normalize(card.dataset.title || card.querySelector('.project-title')?.textContent);
+        const desc  = normalize(card.dataset.one || card.querySelector('.project-desc')?.textContent);
+
+        const matchTag = activeFilter === 'all' ? true : tags.includes(activeFilter);
+        const matchSearch = !q ? true : (title.includes(q) || desc.includes(q) || normalize(card.textContent).includes(q));
+
+        const show = matchTag && matchSearch;
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visibleCount++;
+      });
+
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+        applyProjectFilter();
+      });
+    });
+
+    searchInput?.addEventListener('input', applyProjectFilter);
+
+    // ====== Modal (Quick view) ======
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalOne = document.getElementById('modalOne');
+    const modalChallenge = document.getElementById('modalChallenge');
+    const modalApproach = document.getElementById('modalApproach');
+    const modalImpact = document.getElementById('modalImpact');
+    const modalStack = document.getElementById('modalStack');
+    const modalLink = document.getElementById('modalLink');
+    const modalCopy = document.getElementById('modalCopy');
+
+    let lastFocus = null;
+    let hoverOpenTimer = null;
+    let hoverCloseTimer = null;
+    let openedByHover = false;
+    let currentHoverCard = null;
+
+    function fillModalFromCard(card) {
+      modalTitle.textContent = card.dataset.title || 'Project';
+      modalOne.textContent = card.dataset.one || '';
+      modalChallenge.textContent = card.dataset.challenge || '';
+      modalApproach.textContent = card.dataset.approach || '';
+      modalImpact.textContent = card.dataset.impact || '';
+      modalStack.textContent = card.dataset.stack || '';
+      modalLink.href = card.dataset.link || '#';
+    }
+
+    function openModal(card, { byHover = false } = {}) {
+      if (modal.hasAttribute('open')) return;
+      openedByHover = byHover;
+      lastFocus = document.activeElement;
+
+      fillModalFromCard(card);
+
+      modal.setAttribute('open', '');
+      document.body.style.overflow = 'hidden';
+
+      // focus chỉ khi click (đỡ “giật” khi hover)
+      if (!byHover) modalClose?.focus();
+    }
+
+    function closeModal() {
+      if (!modal.hasAttribute('open')) return;
+      modal.removeAttribute('open');
+      document.body.style.overflow = '';
+      openedByHover = false;
+      currentHoverCard = null;
+      lastFocus?.focus?.();
+    }
+
+    // Click: mở modal (hữu ích cho mobile)
+    document.querySelectorAll('.js-open-modal').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.project-card');
+        if (card) openModal(card, { byHover: false });
+      });
+    });
+
+    // ✅ Hover: mở modal khi hover cả project-card (desktop)
+    const canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (canHover) {
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          // Không hover vào card đang display:none
+          if (getComputedStyle(card).display === 'none') return;
+
+          clearTimeout(hoverCloseTimer);
+          currentHoverCard = card;
+
+          // Nếu modal đang mở do hover rồi thì cập nhật nội dung theo card mới (mượt)
+          if (modal.hasAttribute('open') && openedByHover) {
+            fillModalFromCard(card);
+            return;
+          }
+
+          hoverOpenTimer = setTimeout(() => {
+            // đảm bảo vẫn đang hover card này
+            if (currentHoverCard === card) openModal(card, { byHover: true });
+          }, 140);
+        });
+
+        card.addEventListener('mouseleave', () => {
+          clearTimeout(hoverOpenTimer);
+
+          // delay để người dùng có thể rê sang modal
+          hoverCloseTimer = setTimeout(() => {
+            if (openedByHover) closeModal();
+          }, 260);
+        });
+      });
+
+      // Nếu di chuột vào modal thì giữ mở
+      modal.addEventListener('mouseenter', () => {
+        clearTimeout(hoverCloseTimer);
+      });
+      modal.addEventListener('mouseleave', () => {
+        if (!openedByHover) return;
+        hoverCloseTimer = setTimeout(() => closeModal(), 180);
+      });
+    }
+
+    // Close actions
+    modalClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.hasAttribute('open')) closeModal();
+    });
+
+    modalCopy?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(modalLink.href);
+        modalCopy.textContent = 'Đã copy ✅';
+        setTimeout(() => modalCopy.textContent = 'Copy link', 1200);
+      } catch {
+        const tmp = document.createElement('input');
+        tmp.value = modalLink.href;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        tmp.remove();
+      }
+    });
+
+    // ====== Animated counters ======
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const to = Number(el.getAttribute('data-counter')) || 0;
+        let cur = 0;
+        const step = Math.max(1, Math.round(to / 24));
+        const tick = () => {
+          cur = Math.min(to, cur + step);
+          el.textContent = cur;
+          if (cur < to) requestAnimationFrame(tick);
+        };
+        tick();
+        counterIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterIO.observe(c));
+
+    // ====== Back to top ======
+    const toTop = document.getElementById('toTop');
+    const toggleTop = () => {
+      const show = window.scrollY > 700;
+      toTop.style.display = show ? 'block' : 'none';
+    };
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toggleTop();
+    toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
