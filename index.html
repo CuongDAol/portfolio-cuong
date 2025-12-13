@@ -6,21 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio Bùi Mạnh Cường - Intern/Fresher Data Analyst (Python, SQL, Power BI)." />
 
-  <!-- Performance: preconnect + font with fallback (optional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Open Graph (HR share link) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Bùi Mạnh Cường | Data Analyst" />
   <meta property="og:description" content="Intern/Fresher Data Analyst • Python • SQL • Power BI • Projects with business insights" />
   <meta property="og:type" content="website" />
-  <!-- ✅ OG image: dùng ảnh featured của bạn -->
   <meta property="og:image" content="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/featured.jpg" />
 
   <style>
     :root {
-      /* Deep Navy & Electric Blue */
       --bg: #020617;
       --panel: rgba(15, 23, 42, 0.62);
       --panel-2: rgba(17, 24, 39, 0.62);
@@ -31,15 +28,12 @@
       --primary-2: #2563eb;
       --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
       --radius: 20px;
-      --radius-sm: 14px;
       --radius-full: 999px;
       --ease: cubic-bezier(0.4, 0, 0.2, 1);
       --t: 240ms var(--ease);
-
-      /* Accessible focus */
       --focus: 0 0 0 3px rgba(56, 189, 248, 0.35);
 
-      /* ✅ Background URL (từ link bạn gửi) */
+      /* ✅ Background (back.jpg) */
       --bg-image: url("https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/back.jpg");
     }
 
@@ -57,14 +51,13 @@
       overflow-x: hidden;
     }
 
-    /* Background image layer */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       z-index: -2;
       background-image:
-        linear-gradient(180deg, rgba(2, 6, 23, 0.88), rgba(2, 6, 23, 0.78)),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.90), rgba(2, 6, 23, 0.74)),
         radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.12), transparent 28%),
         radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.12), transparent 28%),
         var(--bg-image);
@@ -75,7 +68,6 @@
       transform: scale(1.03);
     }
 
-    /* Subtle grain */
     body::after {
       content: '';
       position: fixed;
@@ -140,7 +132,6 @@
       color: #fff;
       box-shadow: 0 10px 25px rgba(56, 189, 248, 0.22);
     }
-
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(56, 189, 248, 0.35); }
 
     .btn-outline {
@@ -148,16 +139,12 @@
       border-color: rgba(56, 189, 248, 0.28);
       color: var(--primary);
     }
-
     .btn-outline:hover { background: rgba(56, 189, 248, 0.14); }
-
     .btn:focus-visible { outline: none; box-shadow: var(--focus); }
 
     /* HEADER */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(2, 6, 23, 0.82);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
@@ -165,44 +152,29 @@
     }
 
     .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .85rem 0;
-      gap: 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .85rem 0; gap: 1rem;
     }
 
     .nav-left { display: flex; align-items: center; gap: .9rem; min-width: 220px; }
-
     .nav-avatar {
       width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
       border: 2px solid rgba(56, 189, 248, 0.30);
     }
-
     .nav-info span { display: block; line-height: 1.15; }
     .nav-name { font-weight: 800; font-size: .98rem; }
     .nav-role { font-size: .78rem; color: var(--muted); }
 
     nav.nav-links { display: flex; align-items: center; gap: 1.5rem; }
     nav.nav-links a {
-      color: var(--muted);
-      font-weight: 600;
-      font-size: .9rem;
-      position: relative;
-      padding: .25rem 0;
+      color: var(--muted); font-weight: 600; font-size: .9rem;
+      position: relative; padding: .25rem 0;
     }
-
     nav.nav-links a.active, nav.nav-links a:hover { color: var(--primary); }
     nav.nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      height: 2px;
-      width: 0;
-      background: var(--primary);
-      transition: var(--t);
-      border-radius: 999px;
+      content: ''; position: absolute; left: 0; bottom: -5px;
+      height: 2px; width: 0; background: var(--primary);
+      transition: var(--t); border-radius: 999px;
     }
     nav.nav-links a.active::after, nav.nav-links a:hover::after { width: 100%; }
 
@@ -210,11 +182,11 @@
     .nav-actions { display: flex; align-items: center; gap: .7rem; }
     .icon-btn {
       width: 42px; height: 42px;
-      display: none;
-      place-items: center;
+      display: none; place-items: center;
       border-radius: 12px;
       background: rgba(56,189,248,.08);
       border: 1px solid rgba(56,189,248,.22);
+      color: #fff;
     }
     .icon-btn:focus-visible { outline: none; box-shadow: var(--focus); }
 
@@ -235,12 +207,9 @@
     #hero { padding: 3.2rem 0 4.2rem; }
     .section-header { margin-bottom: 2.2rem; }
     .section-tag {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: .75rem;
-      color: var(--primary);
-      font-weight: 800;
-      display: inline-block;
+      text-transform: uppercase; letter-spacing: 2px;
+      font-size: .75rem; color: var(--primary);
+      font-weight: 800; display: inline-block;
       margin-bottom: .55rem;
     }
     .section-title { font-size: clamp(1.6rem, 2.7vw, 2.05rem); font-weight: 800; }
@@ -252,6 +221,7 @@
       gap: 2.2rem;
       align-items: center;
     }
+
     .hero-title {
       font-size: clamp(2.1rem, 4.8vw, 3.15rem);
       font-weight: 900;
@@ -281,16 +251,11 @@
 
     .tech-stack { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.4rem; }
     .tech-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .42rem .7rem;
-      border-radius: 12px;
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .42rem .7rem; border-radius: 12px;
       border: 1px solid var(--border);
       background: rgba(30, 41, 59, 0.45);
-      color: #cbd5e1;
-      font-size: .86rem;
-      font-weight: 550;
+      color: #cbd5e1; font-size: .86rem; font-weight: 550;
     }
     .tech-badge b { color: var(--primary); font-weight: 800; }
     .hero-buttons { display: flex; flex-wrap: wrap; gap: .8rem; }
@@ -299,8 +264,7 @@
     .profile-card { border-radius: 24px; padding: 1.9rem; position: relative; overflow: hidden; }
     .profile-card::before {
       content: '';
-      position: absolute;
-      inset: -60% -40% auto -40%;
+      position: absolute; inset: -60% -40% auto -40%;
       height: 220%;
       background: radial-gradient(circle, rgba(56,189,248,0.14) 0%, transparent 65%);
       pointer-events: none;
@@ -308,24 +272,19 @@
     .profile-card-inner { position: relative; z-index: 1; text-align: center; }
     .profile-avatar-large {
       width: 132px; height: 132px;
-      border-radius: 50%;
-      object-fit: cover;
+      border-radius: 50%; object-fit: cover;
       margin: 0 auto 1.15rem;
       border: 4px solid rgba(56, 189, 248, 0.18);
       box-shadow: 0 0 34px rgba(56, 189, 248, 0.18);
     }
     .profile-bio { color: var(--muted); font-size: .92rem; margin: .65rem auto 1.25rem; max-width: 40ch; }
     .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: .7rem;
-      border-top: 1px solid var(--border);
-      padding-top: 1.15rem;
-      margin-top: 1.2rem;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: .7rem; border-top: 1px solid var(--border);
+      padding-top: 1.15rem; margin-top: 1.2rem;
     }
     .stat {
-      border-radius: 14px;
-      border: 1px solid var(--border);
+      border-radius: 14px; border: 1px solid var(--border);
       background: rgba(2, 6, 23, 0.18);
       padding: .9rem .65rem;
     }
@@ -352,14 +311,12 @@
     }
     .skill-box h3 {
       display: flex; align-items: center; gap: .55rem;
-      font-size: 1rem;
-      color: var(--primary);
+      font-size: 1rem; color: var(--primary);
       margin-bottom: .85rem;
     }
     .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
     .skill-tag {
-      font-size: .82rem;
-      padding: .32rem .7rem;
+      font-size: .82rem; padding: .32rem .7rem;
       border-radius: var(--radius-full);
       border: 1px solid #334155;
       background: rgba(15, 23, 42, 0.82);
@@ -368,9 +325,7 @@
 
     /* PROJECTS */
     .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .55rem;
+      display: flex; flex-wrap: wrap; gap: .55rem;
       margin-bottom: 1.2rem;
     }
     .filter-btn {
@@ -400,7 +355,11 @@
       transition: var(--t);
       position: relative;
     }
-    .project-card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.28); box-shadow: 0 18px 40px -18px rgba(0,0,0,.7); }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56,189,248,.28);
+      box-shadow: 0 18px 40px -18px rgba(0,0,0,.7);
+    }
 
     .project-thumb {
       width: 100%;
@@ -416,13 +375,9 @@
     .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
     .project-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: .75rem;
-      margin-bottom: .55rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: .75rem; margin-bottom: .55rem;
     }
-
     .project-title { font-size: 1.07rem; font-weight: 850; }
     .project-desc { color: var(--muted); font-size: .9rem; margin-bottom: .8rem; }
 
@@ -442,7 +397,6 @@
     .metric span { display: block; font-size: .78rem; color: var(--muted); }
 
     .project-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
-    .project-links a { font-size: .9rem; font-weight: 700; }
 
     /* EXPERIENCE */
     .timeline { max-width: 840px; }
@@ -478,7 +432,6 @@
     }
     .contact-card p { color: #cbd5e1; max-width: 64ch; margin: .6rem auto 1.6rem; }
 
-    /* Footer */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 0;
@@ -488,7 +441,6 @@
       background: rgba(2, 6, 23, 0.88);
     }
 
-    /* Responsive */
     @media (max-width: 980px) {
       .hero-layout { grid-template-columns: 1fr; }
       .quick-facts { grid-template-columns: 1fr; }
@@ -549,7 +501,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section id="hero">
       <div class="container hero-layout">
         <div>
@@ -560,15 +511,9 @@
           </p>
 
           <div class="quick-facts" role="list">
-            <div class="fact" role="listitem">
-              <b>Vị trí</b><span>Intern / Fresher Data Analyst</span>
-            </div>
-            <div class="fact" role="listitem">
-              <b>Stack chính</b><span>Python • SQL • Power BI</span>
-            </div>
-            <div class="fact" role="listitem">
-              <b>Điểm mạnh</b><span>Business context + storytelling</span>
-            </div>
+            <div class="fact" role="listitem"><b>Vị trí</b><span>Intern / Fresher Data Analyst</span></div>
+            <div class="fact" role="listitem"><b>Stack chính</b><span>Python • SQL • Power BI</span></div>
+            <div class="fact" role="listitem"><b>Điểm mạnh</b><span>Business context + storytelling</span></div>
           </div>
 
           <div class="tech-stack" aria-label="Kỹ năng chính">
@@ -600,7 +545,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="container">
         <div class="section-header">
@@ -621,7 +565,6 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
       <div class="container">
         <div class="section-header">
@@ -663,12 +606,11 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Portfolio</span>
-          <h2 class="section-title">Dự án nổi bật (HR có thể đọc trong 30s)</h2>
+          <h2 class="section-title">Dự án nổi bật</h2>
         </div>
 
         <div class="filters" aria-label="Lọc dự án">
@@ -681,16 +623,13 @@
         </div>
 
         <div class="projects-grid" id="projectsGrid">
-          <!-- ✅ Tech Store: featured.jpg -->
+
+          <!-- Tech Store -->
           <article class="project-card" data-tags="python">
             <div class="project-thumb" aria-hidden="true">
-              <img
-                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/featured.jpg"
-                alt="Tech Store Business Performance - Featured dashboard"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Tech Store Thumbnail</span>'"
-              />
+              <img loading="lazy" decoding="async" alt="Tech Store Business Performance - chart preview"
+                src="https://raw.githubusercontent.com/CuongDAol/phantichkinhdoanhcuahangcongnghe/master/Q1.png"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Tech Store Thumbnail</span>'" />
             </div>
 
             <div class="project-top">
@@ -705,9 +644,7 @@
               <span class="pill">Visualization</span>
             </div>
 
-            <p class="project-desc">
-              Gộp 12 file CSV, làm sạch dữ liệu, tạo feature (Month/Hour/City/Sales) và rút insight kinh doanh để đề xuất tăng trưởng.
-            </p>
+            <p class="project-desc">Gộp 12 file CSV, làm sạch dữ liệu, tạo feature và rút insight kinh doanh để đề xuất tăng trưởng.</p>
 
             <div class="project-metrics">
               <div class="metric"><b>186,850</b><span>giao dịch được phân tích</span></div>
@@ -720,16 +657,12 @@
             </div>
           </article>
 
-          <!-- ✅ Coffee & Tea: 1723134087038.png -->
+          <!-- Coffee & Tea -->
           <article class="project-card" data-tags="python">
             <div class="project-thumb" aria-hidden="true">
-              <img
+              <img loading="lazy" decoding="async" alt="Coffee & Tea Sales Analysis - dashboard"
                 src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/1723134087038.png"
-                alt="Coffee & Tea Sales Analysis - dashboard/insight"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Coffee &amp; Tea Thumbnail</span>'"
-              />
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Coffee &amp; Tea Thumbnail</span>'" />
             </div>
 
             <div class="project-top">
@@ -744,14 +677,7 @@
               <span class="pill">Action plan</span>
             </div>
 
-            <p class="project-desc">
-              So sánh dữ liệu cửa hàng lẻ vs toàn chuỗi, phân tích sản phẩm/danh mục, hành vi theo thời gian và đề xuất tối ưu vận hành.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric"><b>4 tháng</b><span>01/03/2023 → 30/06/2023</span></div>
-              <div class="metric"><b>+~1,275đ</b><span>AOV tăng khi có khuyến mãi</span></div>
-            </div>
+            <p class="project-desc">So sánh dữ liệu cửa hàng lẻ vs toàn chuỗi, phân tích hành vi theo thời gian và đề xuất tối ưu vận hành.</p>
 
             <div class="project-links">
               <a class="btn btn-outline" href="https://github.com/CuongDAol/salecoffeandtee" target="_blank" rel="noreferrer">Mã nguồn</a>
@@ -759,16 +685,12 @@
             </div>
           </article>
 
-          <!-- ✅ Sales & Inventory: bss.jpg -->
+          <!-- ✅ Sales & Inventory (NEW image commit) -->
           <article class="project-card" data-tags="powerbi python">
             <div class="project-thumb" aria-hidden="true">
-              <img
-                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/bss.jpg"
-                alt="Sales & Inventory Optimization - Power BI dashboard"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Power BI Dashboard</span>'"
-              />
+              <img loading="lazy" decoding="async" alt="Sales & Inventory Optimization - analytics dashboard"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/0ea8f943e686408a2dc453ec86b9b5675d3609d3/18_222_1162-Technology-BlogBanner_728x90.png"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Sales Thumbnail</span>'" />
             </div>
 
             <div class="project-top">
@@ -783,14 +705,7 @@
               <span class="pill">Excel/CSV</span>
             </div>
 
-            <p class="project-desc">
-              Phân tích bán hàng & sản phẩm bằng Python, thiết kế báo cáo Power BI theo KPI: doanh thu, đơn hàng, tồn kho, top SKU.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric"><b>Power BI</b><span>Thẻ KPI, map, top SKU</span></div>
-              <div class="metric"><b>Insight</b><span>OOS (tồn=0) nhưng vẫn có đơn</span></div>
-            </div>
+            <p class="project-desc">Thiết kế báo cáo Power BI theo KPI và rút insight vận hành (doanh thu, đơn hàng, tồn kho, top SKU).</p>
 
             <div class="project-links">
               <a class="btn btn-outline" href="https://github.com/CuongDAol/BSS_test" target="_blank" rel="noreferrer">Mã nguồn</a>
@@ -798,90 +713,94 @@
             </div>
           </article>
 
-          <!-- ✅ Mobile Phone Market: doanh-so-smartphone...jpg -->
+          <!-- Mobile Phone -->
           <article class="project-card" data-tags="scraping python">
             <div class="project-thumb" aria-hidden="true">
-              <img
+              <img loading="lazy" decoding="async" alt="Mobile Phone Market Analysis - smartphone market"
                 src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/doanh-so-smartphone-quy-4-5-1.jpg"
-                alt="Mobile Phone Market Analysis - smartphone sales chart"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Crawler + ETL</span>'"
-              />
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Crawler + ETL</span>'" />
             </div>
+
             <div class="project-top"><h3 class="project-title">Mobile Phone Market Analysis</h3></div>
+
             <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
               <span class="pill">Scraping</span><span class="pill">Selenium</span><span class="pill">MySQL</span>
             </div>
-            <p class="project-desc">Tự động crawl dữ liệu, chuẩn hóa & ETL vào MySQL, phân tích phân khúc giá thị trường.</p>
+
+            <p class="project-desc">Crawl dữ liệu, chuẩn hóa & ETL vào MySQL, phân tích phân khúc giá thị trường.</p>
+
             <div class="project-links">
               <a class="btn btn-outline" href="https://github.com/CuongDAol/Phantichhangdienthoai" target="_blank" rel="noreferrer">Mã nguồn</a>
             </div>
           </article>
 
-          <!-- ✅ FPT Stock: dùng ảnh FPT-Software...jpg (phù hợp brand FPT) -->
+          <!-- FPT Stock -->
           <article class="project-card" data-tags="python">
             <div class="project-thumb" aria-hidden="true">
-              <img
+              <img loading="lazy" decoding="async" alt="FPT Stock Financial Analysis - FPT cover"
                 src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/FPT-Software-Launches-Office-in-India-Looking-to-Expand-Global-Delivery-Centre-Network.jpg"
-                alt="FPT Stock Financial Analysis - FPT company cover"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Finance EDA</span>'"
-              />
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>Finance EDA</span>'" />
             </div>
+
             <div class="project-top"><h3 class="project-title">FPT Stock Financial Analysis</h3></div>
+
             <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
               <span class="pill">Scraping</span><span class="pill">Finance</span><span class="pill">Jupyter</span>
             </div>
+
             <p class="project-desc">Thu thập BCTC (Vietstock), làm sạch dữ liệu tài chính, đánh giá sức khỏe doanh nghiệp theo năm.</p>
+
             <div class="project-links">
               <a class="btn btn-outline" href="https://github.com/CuongDAol/cophieufpt" target="_blank" rel="noreferrer">Mã nguồn</a>
             </div>
           </article>
 
-          <!-- Library (chưa có ảnh riêng -> giữ placeholder) -->
+          <!-- ✅ Library (code image) -->
           <article class="project-card" data-tags="sql">
-            <div class="project-thumb" aria-hidden="true"><span style="color:var(--muted);font-weight:700">DB Design</span></div>
+            <div class="project-thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" alt="Library Management System - SQL schema/code"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/485a0b63-169b-4d49-bdda-dc27cffc373a.png"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>DB Design</span>'" />
+            </div>
+
             <div class="project-top"><h3 class="project-title">Library Management System</h3></div>
+
             <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
               <span class="pill">SQL</span><span class="pill">CTE</span><span class="pill">JOIN</span>
             </div>
+
             <p class="project-desc">Thiết kế CSDL quan hệ, viết truy vấn thống kê, tối ưu hóa truy vấn phục vụ báo cáo.</p>
+
             <div class="project-links">
               <a class="btn btn-outline" href="https://github.com/CuongDAol/library_project" target="_blank" rel="noreferrer">Mã nguồn</a>
             </div>
           </article>
 
-          <!-- ✅ SpaceX: 485a0b63...png -->
+          <!-- ✅ SpaceX (rocket image) -->
           <article class="project-card" data-tags="ml">
             <div class="project-thumb" aria-hidden="true">
-              <img
-                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/485a0b63-169b-4d49-bdda-dc27cffc373a.png"
-                alt="SpaceX Launch Prediction - visualization"
-                loading="lazy"
-                decoding="async"
-                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>End-to-End DS</span>'"
-              />
+              <img loading="lazy" decoding="async" alt="SpaceX Launch Prediction - rocket launch"
+                src="https://raw.githubusercontent.com/CuongDAol/portfolio-cuong/368ac933bd0acb6385fe1cc3c7c49a5149fd90c9/featured.jpg"
+                onerror="this.closest('.project-thumb').innerHTML='<span style=&quot;color:var(--muted);font-weight:700&quot;>SpaceX Thumbnail</span>'" />
             </div>
+
             <div class="project-top"><h3 class="project-title">SpaceX Launch Prediction</h3></div>
+
             <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .6rem;">
               <span class="pill">Machine Learning</span><span class="pill">Plotly</span><span class="pill">Folium</span>
             </div>
+
             <p class="project-desc">Pipeline DS: crawl API, EDA, dashboard bản đồ và mô hình ML dự đoán hạ cánh.</p>
+
             <div class="project-links">
               <a class="btn btn-outline" href="https://github.com/CuongDAol/ibm-pj" target="_blank" rel="noreferrer">Mã nguồn</a>
             </div>
           </article>
-        </div>
 
-        <p style="color:var(--muted);margin-top:1rem;font-size:.92rem;">
-          Tip: Nếu bạn gửi thêm 1 ảnh cho “Library Management System” (thumbnail), mình sẽ gắn nốt để tất cả project đều có ảnh.
-        </p>
+        </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience">
       <div class="container">
         <div class="section-header">
@@ -896,7 +815,7 @@
             <div class="timeline-org">Công ty TNHH IGA Việt Nam</div>
             <ul class="timeline-desc">
               <li>Thu thập & phân tích dữ liệu thị trường/đối thủ để hỗ trợ quyết định Marketing & Kinh doanh.</li>
-              <li>Xây dựng báo cáo insight định kỳ (template + biểu đồ), tập trung vào khuyến nghị hành động.</li>
+              <li>Xây dựng báo cáo insight định kỳ, tập trung vào khuyến nghị hành động.</li>
             </ul>
           </div>
 
@@ -913,7 +832,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="contact-card">
@@ -953,6 +871,7 @@
       menuBtn.setAttribute('aria-expanded', String(!isOpen));
     });
 
+    // Close mobile menu after clicking a link
     mobilePanel?.addEventListener('click', (e) => {
       const target = e.target;
       if (target && target.tagName === 'A') {
@@ -961,20 +880,19 @@
       }
     });
 
-    // Active nav link based on scroll
+    // Active nav link
     const sections = ['about','skills','projects','experience','contact']
       .map(id => document.getElementById(id))
       .filter(Boolean);
 
     const navLinks = Array.from(document.querySelectorAll('nav.nav-links a'));
-
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const id = entry.target.id;
         navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
       });
-    }, { root: null, threshold: 0.35 });
+    }, { threshold: 0.35 });
 
     sections.forEach(s => io.observe(s));
 
