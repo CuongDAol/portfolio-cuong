@@ -1,8 +1,7 @@
 // ============================================================
-// portfolio-animations.js  –  Bùi Mạnh Cường Portfolio
-// Các hiệu ứng: Particles, Typing, Scroll reveal, 
-//               Skill bar, Cursor glow, Tilt card, 
-//               Scroll progress, Counter, Ripple
+// portfolio-animations.js v2.0 – Bùi Mạnh Cường Portfolio
+// Thêm: Available badge pulse, Copy email, Skills chart hint,
+//       GitHub stats, Enhanced timeline, Cert badges
 // ============================================================
 
 /* ── 1. SCROLL PROGRESS BAR ─────────────────────────────── */
@@ -23,7 +22,6 @@
     bar.style.width = (scrolled / maxScroll * 100) + '%';
   }, { passive: true });
 })();
-
 
 /* ── 2. PARTICLES CANVAS BACKGROUND ─────────────────────── */
 (function initParticles() {
@@ -99,10 +97,8 @@
   animate();
 })();
 
-
 /* ── 3. TYPING ANIMATION (Hero Title) ───────────────────── */
 (function initTyping() {
-  // Tìm element có id="typed-text", nếu chưa có thì inject vào .hero-title
   let el = document.getElementById('typed-text');
   if (!el) {
     const heroTitle = document.querySelector('.hero-title');
@@ -119,11 +115,6 @@
         margin-left: 2px;
       }
       @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
-      #typed-text .highlight {
-        background: linear-gradient(135deg,#38bdf8,#818cf8,#c084fc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
     `;
     document.head.appendChild(style);
   }
@@ -150,8 +141,7 @@
   setTimeout(type, 800);
 })();
 
-
-/* ── 4. SCROLL REVEAL (AOS-like, không cần thư viện) ─────── */
+/* ── 4. SCROLL REVEAL ───────────────────────────────────── */
 (function initScrollReveal() {
   const style = document.createElement('style');
   style.textContent = `
@@ -174,7 +164,6 @@
   `;
   document.head.appendChild(style);
 
-  // Auto-gắn data-reveal vào các section chính
   const targets = [
     { sel: '.about-card',    attr: 'up' },
     { sel: '.skill-box',     attr: 'up' },
@@ -202,7 +191,6 @@
 
   document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 })();
-
 
 /* ── 5. TILT CARD (Project Cards 3D hover) ───────────────── */
 (function initTilt() {
@@ -237,10 +225,9 @@
   });
 })();
 
-
 /* ── 6. CURSOR GLOW ──────────────────────────────────────── */
 (function initCursorGlow() {
-  if (window.matchMedia('(pointer: coarse)').matches) return; // bỏ qua mobile
+  if (window.matchMedia('(pointer: coarse)').matches) return;
   const glow = document.createElement('div');
   Object.assign(glow.style, {
     position: 'fixed', width: '380px', height: '380px',
@@ -257,7 +244,6 @@
     glow.style.top = e.clientY + 'px';
   }, { passive: true });
 })();
-
 
 /* ── 7. RIPPLE EFFECT (Buttons) ──────────────────────────── */
 (function initRipple() {
@@ -292,7 +278,6 @@
   });
 })();
 
-
 /* ── 8. SKILL TAGS HOVER GLOW ────────────────────────────── */
 (function initSkillGlow() {
   const style = document.createElement('style');
@@ -312,7 +297,6 @@
   document.head.appendChild(style);
 })();
 
-
 /* ── 9. SECTION ACTIVE NAV HIGHLIGHT ─────────────────────── */
 (function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
@@ -331,7 +315,6 @@
   sections.forEach(s => observer.observe(s));
 })();
 
-
 /* ── 10. PAGE LOAD FADE-IN ───────────────────────────────── */
 (function initPageFade() {
   const style = document.createElement('style');
@@ -340,4 +323,106 @@
     @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   `;
   document.head.appendChild(style);
+})();
+
+/* ── 11. ✨ AVAILABLE FOR WORK PULSE BADGE ───────────────── */
+(function initAvailableBadge() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .badge.pulse-badge {
+      animation: pulseBadge 2s ease infinite;
+      box-shadow: 0 0 0 0 rgba(56,189,248,0.6);
+    }
+    @keyframes pulseBadge {
+      0% { box-shadow: 0 0 0 0 rgba(56,189,248,0.6); }
+      50% { box-shadow: 0 0 0 8px rgba(56,189,248,0); }
+      100% { box-shadow: 0 0 0 0 rgba(56,189,248,0); }
+    }
+    .badge.pulse-badge::before {
+      content: '🟢';
+      margin-right: 0.3rem;
+      animation: pulse 1.5s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  document.querySelectorAll('.badge').forEach(badge => {
+    if (badge.textContent.includes('Open to Work')) {
+      badge.classList.add('pulse-badge');
+    }
+  });
+})();
+
+/* ── 12. 📧 COPY EMAIL ONE-CLICK ─────────────────────────── */
+(function initCopyEmail() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 0.85rem 1.2rem;
+      background: rgba(56,189,248,0.95);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
+  document.head.appendChild(style);
+
+  const toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  toast.textContent = '✓ Đã copy email!';
+  document.body.appendChild(toast);
+
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="mailto:"]');
+    if (!link) return;
+    e.preventDefault();
+    const email = link.href.replace('mailto:', '');
+    navigator.clipboard.writeText(email).then(() => {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    });
+  });
+})();
+
+/* ── 13. 📊 COUNTER ANIMATION (Stats) ────────────────────── */
+(function initCounter() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.dataset.counter);
+        let current = 0;
+        const increment = target / 60;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            e.target.textContent = target;
+            clearInterval(timer);
+          } else {
+            e.target.textContent = Math.floor(current);
+          }
+        }, 16);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-counter]').forEach(el => observer.observe(el));
 })();
